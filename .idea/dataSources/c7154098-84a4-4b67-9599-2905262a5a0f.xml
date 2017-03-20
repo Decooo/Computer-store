@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@localhost [2]">
+  <database-model serializer="dbm" rdbms="ORACLE" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="TEST">
+      <ObjectId>103</ObjectId>
+      <IntrospectionTimestamp>2017-03-20.17:46:22</IntrospectionTimestamp>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="PUBLIC">
+      <ObjectId>1</ObjectId>
+    </schema>
+    <schema id="4" parent="1" name="SYS">
+      <ObjectId>0</ObjectId>
+    </schema>
+    <schema id="5" parent="1" name="AUDSYS">
+      <ObjectId>7</ObjectId>
+    </schema>
+    <schema id="6" parent="1" name="SYSTEM">
+      <ObjectId>8</ObjectId>
+    </schema>
+    <schema id="7" parent="1" name="OUTLN">
+      <ObjectId>13</ObjectId>
+    </schema>
+    <schema id="8" parent="1" name="GSMADMIN_INTERNAL">
+      <ObjectId>21</ObjectId>
+    </schema>
+    <schema id="9" parent="1" name="GSMUSER">
+      <ObjectId>22</ObjectId>
+    </schema>
+    <schema id="10" parent="1" name="DIP">
+      <ObjectId>23</ObjectId>
+    </schema>
+    <schema id="11" parent="1" name="ORACLE_OCM">
+      <ObjectId>36</ObjectId>
+    </schema>
+    <schema id="12" parent="1" name="DBSNMP">
+      <ObjectId>48</ObjectId>
+    </schema>
+    <schema id="13" parent="1" name="APPQOSSYS">
+      <ObjectId>49</ObjectId>
+    </schema>
+    <schema id="14" parent="1" name="XDB">
+      <ObjectId>50</ObjectId>
+    </schema>
+    <schema id="15" parent="1" name="ANONYMOUS">
+      <ObjectId>51</ObjectId>
+    </schema>
+    <schema id="16" parent="1" name="GSMCATUSER">
+      <ObjectId>61</ObjectId>
+    </schema>
+    <schema id="17" parent="1" name="WMSYS">
+      <ObjectId>62</ObjectId>
+    </schema>
+    <schema id="18" parent="1" name="OJVMSYS">
+      <ObjectId>70</ObjectId>
+    </schema>
+    <schema id="19" parent="1" name="CTXSYS">
+      <ObjectId>73</ObjectId>
+    </schema>
+    <schema id="20" parent="1" name="ORDSYS">
+      <ObjectId>75</ObjectId>
+    </schema>
+    <schema id="21" parent="1" name="ORDDATA">
+      <ObjectId>76</ObjectId>
+    </schema>
+    <schema id="22" parent="1" name="ORDPLUGINS">
+      <ObjectId>77</ObjectId>
+    </schema>
+    <schema id="23" parent="1" name="SI_INFORMTN_SCHEMA">
+      <ObjectId>78</ObjectId>
+    </schema>
+    <schema id="24" parent="1" name="MDSYS">
+      <ObjectId>79</ObjectId>
+    </schema>
+    <schema id="25" parent="1" name="OLAPSYS">
+      <ObjectId>82</ObjectId>
+    </schema>
+    <schema id="26" parent="1" name="MDDATA">
+      <ObjectId>85</ObjectId>
+    </schema>
+    <schema id="27" parent="1" name="SPATIAL_WFS_ADMIN_USR">
+      <ObjectId>87</ObjectId>
+    </schema>
+    <schema id="28" parent="1" name="SPATIAL_CSW_ADMIN_USR">
+      <ObjectId>90</ObjectId>
+    </schema>
+    <schema id="29" parent="1" name="LBACSYS">
+      <ObjectId>92</ObjectId>
+    </schema>
+    <schema id="30" parent="1" name="FLOWS_FILES">
+      <ObjectId>94</ObjectId>
+    </schema>
+    <schema id="31" parent="1" name="APEX_PUBLIC_USER">
+      <ObjectId>95</ObjectId>
+    </schema>
+    <schema id="32" parent="1" name="APEX_040200">
+      <ObjectId>98</ObjectId>
+    </schema>
+    <schema id="33" parent="1" name="DVF">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="34" parent="1" name="SCOTT">
+      <ObjectId>102</ObjectId>
+    </schema>
+    <schema id="35" parent="1" name="DVSYS">
+      <ObjectId>1279990</ObjectId>
+    </schema>
+    <schema id="36" parent="1" name="SYSBACKUP">
+      <ObjectId>2147483617</ObjectId>
+    </schema>
+    <schema id="37" parent="1" name="SYSDG">
+      <ObjectId>2147483618</ObjectId>
+    </schema>
+    <schema id="38" parent="1" name="SYSKM">
+      <ObjectId>2147483619</ObjectId>
+    </schema>
+    <schema id="39" parent="1" name="XS$NULL">
+      <ObjectId>2147483638</ObjectId>
+    </schema>
+    <sequence id="40" parent="2" name="AUTO_ID_KLIENTA">
+      <ObjectId>91951</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:03</ModifiedTimestamp>
+      <SequenceIdentity>1..1000</SequenceIdentity>
+      <Cycled>1</Cycled>
+    </sequence>
+    <sequence id="41" parent="2" name="AUTO_ID_KURIERA">
+      <ObjectId>91952</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:03</ModifiedTimestamp>
+      <SequenceIdentity>1..1000</SequenceIdentity>
+      <Cycled>1</Cycled>
+    </sequence>
+    <sequence id="42" parent="2" name="AUTO_ID_PRACOWNIK">
+      <ObjectId>91953</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:03</ModifiedTimestamp>
+      <SequenceIdentity>1..1000</SequenceIdentity>
+      <Cycled>1</Cycled>
+    </sequence>
+    <sequence id="43" parent="2" name="AUTO_ID_SERIA">
+      <ObjectId>91954</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:03</ModifiedTimestamp>
+      <SequenceIdentity>1..10000</SequenceIdentity>
+      <Cycled>1</Cycled>
+    </sequence>
+    <sequence id="44" parent="2" name="AUTO_ID_SPRZEDAZ">
+      <ObjectId>91955</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:03</ModifiedTimestamp>
+      <SequenceIdentity>1..1000</SequenceIdentity>
+      <Cycled>1</Cycled>
+    </sequence>
+    <sequence id="45" parent="2" name="AUTO_ID_SPRZET">
+      <ObjectId>91956</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:03</ModifiedTimestamp>
+      <SequenceIdentity>1..1000</SequenceIdentity>
+      <Cycled>1</Cycled>
+    </sequence>
+    <sequence id="46" parent="2" name="AUTO_ID_STANOWISKO">
+      <ObjectId>91957</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:03</ModifiedTimestamp>
+      <SequenceIdentity>1..1000</SequenceIdentity>
+      <Cycled>1</Cycled>
+    </sequence>
+    <table id="47" parent="2" name="GODZINY">
+      <ObjectId>91958</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:09</ModifiedTimestamp>
+    </table>
+    <table id="48" parent="2" name="KLIENT">
+      <ObjectId>91959</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+    </table>
+    <table id="49" parent="2" name="KONTO">
+      <ObjectId>91960</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:03</ModifiedTimestamp>
+    </table>
+    <table id="50" parent="2" name="KURIER">
+      <ObjectId>91961</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+    </table>
+    <table id="51" parent="2" name="SERIA">
+      <ObjectId>91962</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+    </table>
+    <table id="52" parent="2" name="SPRZEDAZ">
+      <ObjectId>91963</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+    </table>
+    <table id="53" parent="2" name="SPRZET">
+      <ObjectId>91964</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+    </table>
+    <table id="54" parent="2" name="STANOWISKO">
+      <ObjectId>91965</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:03</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+    </table>
+    <column id="55" parent="47" name="ID_PRACOWNIKA">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="47" name="STYCZEN_GODZINY">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="47" name="LUTY_GODZINY">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="47" name="MARZEC_GODZINY">
+      <Position>4</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="47" name="KWIECIEN_GODZINY">
+      <Position>5</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="47" name="MAJ_GODZINY">
+      <Position>6</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="47" name="CZERWIEC_GODZINY">
+      <Position>7</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="47" name="LIPIEC_GODZINY">
+      <Position>8</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="47" name="SIERPIEN_GODZINY">
+      <Position>9</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="47" name="WRZESIEN_GODZINY">
+      <Position>10</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="47" name="PAZDZIERNIK_GODZINY">
+      <Position>11</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="47" name="LISTOPAD_GODZINY">
+      <Position>12</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="47" name="GRUDZIEN_GODZINY">
+      <Position>13</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="48" name="ID_KLIENTA">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="48" name="IMIE_KLIENTA">
+      <Position>2</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="48" name="NAZWISKO_KLIENTA">
+      <Position>3</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="48" name="KOD_POCZTOWY">
+      <Position>4</Position>
+      <DataType>VARCHAR2(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="48" name="POCZTA">
+      <Position>5</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="48" name="NR_LOKALU">
+      <Position>6</Position>
+      <DataType>VARCHAR2(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="48" name="MIEJSCOWOSC">
+      <Position>7</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="48" name="ULICA">
+      <Position>8</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+    </column>
+    <column id="76" parent="48" name="LOGIN">
+      <Position>9</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="48" name="HASLO">
+      <Position>10</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="48" name="EMAIL">
+      <Position>11</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="79" parent="48" name="KLIENT_PK">
+      <ObjectId>91969</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:04</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:04</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ID_KLIENTA</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="80" parent="48" name="KLIENT_PK">
+      <ModifiedTimestamp>2017-03-20.17:43:09</ModifiedTimestamp>
+      <ColNames>ID_KLIENTA</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>KLIENT_PK</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="81" parent="48" name="SPRZEDAZ_KLIENT">
+      <ModifiedTimestamp>2017-03-20.17:43:10</ModifiedTimestamp>
+      <ColNames>ID_KLIENTA</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>KLIENT</RefTableName>
+      <RefKeyName>KLIENT_PK</RefKeyName>
+    </foreign-key>
+    <trigger id="82" parent="48" name="AUTO_ID_KLIENTA">
+      <ObjectId>91972</ObjectId>
+      <Invalid>1</Invalid>
+      <CreatedTimestamp>2017-03-20.17:43:12</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+      <Events>I</Events>
+      <Turn>before-row</Turn>
+    </trigger>
+    <column id="83" parent="49" name="LOGIN_KONTA">
+      <Position>1</Position>
+      <DataType>VARCHAR2(20)|0</DataType>
+    </column>
+    <column id="84" parent="49" name="HASLO_KONTA">
+      <Position>2</Position>
+      <DataType>VARCHAR2(20)|0</DataType>
+    </column>
+    <column id="85" parent="49" name="EMAIL_KONTA">
+      <Position>3</Position>
+      <DataType>VARCHAR2(20)|0</DataType>
+    </column>
+    <column id="86" parent="50" name="ID_KURIERA">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="87" parent="50" name="IMIE_KURIERA">
+      <Position>2</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="50" name="NAZWISKO_KURIERA">
+      <Position>3</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="50" name="FIRMA_KURIERA">
+      <Position>4</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="50" name="MAX_WAGA_KG">
+      <Position>5</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="91" parent="50" name="KURIER_PK">
+      <ObjectId>91966</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:04</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:04</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ID_KURIERA</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="92" parent="50" name="KURIER_PK">
+      <ModifiedTimestamp>2017-03-20.17:43:04</ModifiedTimestamp>
+      <ColNames>ID_KURIERA</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>KURIER_PK</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <trigger id="93" parent="50" name="AUTO_ID_KURIERA">
+      <ObjectId>91973</ObjectId>
+      <Invalid>1</Invalid>
+      <CreatedTimestamp>2017-03-20.17:43:13</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+      <Events>I</Events>
+      <Turn>before-row</Turn>
+    </trigger>
+    <column id="94" parent="51" name="ID_SERI">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="51" name="NAZWA_SERI">
+      <Position>2</Position>
+      <DataType>VARCHAR2(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="96" parent="51" name="SERIA_PK">
+      <ObjectId>91967</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:04</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:04</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ID_SERI</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="97" parent="51" name="SERIA_PK">
+      <ModifiedTimestamp>2017-03-20.17:43:07</ModifiedTimestamp>
+      <ColNames>ID_SERI</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SERIA_PK</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <trigger id="98" parent="51" name="AUTO_ID_SERIA">
+      <ObjectId>91974</ObjectId>
+      <Invalid>1</Invalid>
+      <CreatedTimestamp>2017-03-20.17:43:13</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+      <Events>I</Events>
+      <Turn>before-row</Turn>
+    </trigger>
+    <column id="99" parent="52" name="ID_SPRZEDAZY">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="100" parent="52" name="ID_SPRZETU">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="101" parent="52" name="ID_KURIERA">
+      <Position>3</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="52" name="ID_KLIENTA">
+      <Position>4</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="52" name="ILOSC">
+      <Position>5</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="104" parent="52" name="DATA_SPRZEDAZY">
+      <Position>6</Position>
+      <DataType>DATE|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="105" parent="52" name="SPRZEDAZ_PK">
+      <ObjectId>91971</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:04</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:04</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ID_SPRZEDAZY</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="106" parent="52" name="SPRZEDAZ_PK">
+      <ModifiedTimestamp>2017-03-20.17:43:07</ModifiedTimestamp>
+      <ColNames>ID_SPRZEDAZY</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SPRZEDAZ_PK</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="107" parent="52" name="SPRZEDAZ_SPRZET">
+      <ModifiedTimestamp>2017-03-20.17:43:12</ModifiedTimestamp>
+      <ColNames>ID_SPRZETU</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>SPRZET</RefTableName>
+      <RefKeyName>SPRZET_KLUCZ</RefKeyName>
+    </foreign-key>
+    <foreign-key id="108" parent="52" name="SPRZEDAZ_KURIER">
+      <ModifiedTimestamp>2017-03-20.17:43:10</ModifiedTimestamp>
+      <ColNames>ID_KURIERA</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>KURIER</RefTableName>
+      <RefKeyName>KURIER_PK</RefKeyName>
+    </foreign-key>
+    <trigger id="109" parent="52" name="AUTO_ID_SPRZEDAZ">
+      <ObjectId>91975</ObjectId>
+      <Invalid>1</Invalid>
+      <CreatedTimestamp>2017-03-20.17:43:13</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+      <Events>I</Events>
+      <Turn>before-row</Turn>
+    </trigger>
+    <column id="110" parent="53" name="ID_SPRZETU">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="111" parent="53" name="ID_SERI">
+      <Position>2</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="112" parent="53" name="NAZWA_SPRZETU">
+      <Position>3</Position>
+      <DataType>VARCHAR2(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="113" parent="53" name="WAGA_SPRZETU">
+      <Position>4</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="114" parent="53" name="SPRZET_PK">
+      <ObjectId>91970</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:04</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:04</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ID_SPRZETU</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="115" parent="53" name="SPRZET_KLUCZ">
+      <ModifiedTimestamp>2017-03-20.17:43:06</ModifiedTimestamp>
+      <ColNames>ID_SPRZETU</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SPRZET_PK</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="116" parent="53" name="SPRZET_SERIA">
+      <ModifiedTimestamp>2017-03-20.17:43:12</ModifiedTimestamp>
+      <ColNames>ID_SERI</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>SERIA</RefTableName>
+      <RefKeyName>SERIA_PK</RefKeyName>
+    </foreign-key>
+    <trigger id="117" parent="53" name="AUTO_ID_SPRZET">
+      <ObjectId>91976</ObjectId>
+      <Invalid>1</Invalid>
+      <CreatedTimestamp>2017-03-20.17:43:13</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+      <Events>I</Events>
+      <Turn>before-row</Turn>
+    </trigger>
+    <column id="118" parent="54" name="ID_STANOWISKA">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="119" parent="54" name="NAZWA_STANOWISKA">
+      <Position>2</Position>
+      <DataType>VARCHAR2(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="120" parent="54" name="STAWKA">
+      <Position>3</Position>
+      <DataType>FLOAT(126)|0</DataType>
+    </column>
+    <index id="121" parent="54" name="STANOWISKO_PK">
+      <ObjectId>91968</ObjectId>
+      <CreatedTimestamp>2017-03-20.17:43:04</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:43:04</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ID_STANOWISKA</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="122" parent="54" name="STANOWISKO_PK">
+      <ModifiedTimestamp>2017-03-20.17:43:07</ModifiedTimestamp>
+      <ColNames>ID_STANOWISKA</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>STANOWISKO_PK</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <trigger id="123" parent="54" name="AUTO_ID_STANOWISK0">
+      <ObjectId>91977</ObjectId>
+      <Invalid>1</Invalid>
+      <CreatedTimestamp>2017-03-20.17:43:13</CreatedTimestamp>
+      <ModifiedTimestamp>2017-03-20.17:45:00</ModifiedTimestamp>
+      <Events>I</Events>
+      <Turn>before-row</Turn>
+    </trigger>
+  </database-model>
+</dataSource>
