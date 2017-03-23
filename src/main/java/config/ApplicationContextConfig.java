@@ -14,6 +14,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 import java.util.Properties;
 
@@ -21,7 +22,7 @@ import java.util.Properties;
  * Created by Jakub on 17.03.2017.
  */
 @Configuration
-@ComponentScan()
+@ComponentScan
 @EnableTransactionManagement
 @PropertySource("classpath:ds-hibernate-cfg.properties")
 public class ApplicationContextConfig {
@@ -40,6 +41,7 @@ public class ApplicationContextConfig {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/pages/");
         viewResolver.setSuffix(".jsp");
+        viewResolver.setViewClass(JstlView.class);
         return viewResolver;
     }
 

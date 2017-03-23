@@ -47,6 +47,7 @@
           <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.2" />
           <element id="library" level="project" name="Maven: commons-digester:commons-digester:1.8.1" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons-core:1.4.0.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">

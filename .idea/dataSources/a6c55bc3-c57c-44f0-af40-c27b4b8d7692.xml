@@ -4,9 +4,9 @@
     <root id="1"/>
     <schema id="2" parent="1" name="JAKUB">
       <ObjectId>103</ObjectId>
-      <IntrospectionTimestamp>2017-03-17.11:38:10</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2017-03-21.01:19:11</IntrospectionTimestamp>
       <CreatedTimestamp>2017-03-16.16:07:18</CreatedTimestamp>
-      <ModifiedTimestamp>2017-03-16.23:02:54</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-03-21.00:35:03</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -121,157 +121,109 @@
     <schema id="39" parent="1" name="XS$NULL">
       <ObjectId>2147483638</ObjectId>
     </schema>
-    <sequence id="40" parent="2" name="ADMINISTRATION_SEQ">
-      <ObjectId>92370</ObjectId>
-      <CreatedTimestamp>2017-03-16.22:47:16</CreatedTimestamp>
-      <ModifiedTimestamp>2017-03-16.22:47:16</ModifiedTimestamp>
-      <SequenceIdentity>1..9999999999</SequenceIdentity>
-    </sequence>
-    <sequence id="41" parent="2" name="CART_SEQ">
+    <sequence id="40" parent="2" name="CART_SEQ">
       <ObjectId>92369</ObjectId>
       <CreatedTimestamp>2017-03-16.22:46:27</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.22:46:27</ModifiedTimestamp>
       <SequenceIdentity>1..9999999999</SequenceIdentity>
     </sequence>
-    <sequence id="42" parent="2" name="CATEGORY_SEQ">
+    <sequence id="41" parent="2" name="CATEGORY_SEQ">
       <ObjectId>92376</ObjectId>
       <CreatedTimestamp>2017-03-16.22:59:44</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.22:59:44</ModifiedTimestamp>
       <SequenceIdentity>1..9999999999</SequenceIdentity>
     </sequence>
-    <sequence id="43" parent="2" name="CLIENT_SEQ">
+    <sequence id="42" parent="2" name="CLIENT_SEQ">
       <ObjectId>92348</ObjectId>
       <CreatedTimestamp>2017-03-16.20:12:45</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.20:12:45</ModifiedTimestamp>
       <SequenceIdentity>1..9999999999</SequenceIdentity>
     </sequence>
-    <sequence id="44" parent="2" name="ORDERDETAILS_SEQ">
+    <sequence id="43" parent="2" name="ORDERDETAILS_SEQ">
       <ObjectId>92378</ObjectId>
       <CreatedTimestamp>2017-03-16.23:02:04</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.23:02:04</ModifiedTimestamp>
       <SequenceIdentity>1..9999999999</SequenceIdentity>
     </sequence>
-    <sequence id="45" parent="2" name="ORDERS_SEQ">
+    <sequence id="44" parent="2" name="ORDERS_SEQ">
       <ObjectId>92368</ObjectId>
       <CreatedTimestamp>2017-03-16.22:46:01</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.22:46:01</ModifiedTimestamp>
       <SequenceIdentity>1..9999999999</SequenceIdentity>
     </sequence>
-    <sequence id="46" parent="2" name="PRODUCT_SEQ">
+    <sequence id="45" parent="2" name="PRODUCT_SEQ">
       <ObjectId>92374</ObjectId>
       <CreatedTimestamp>2017-03-16.22:57:50</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.22:57:50</ModifiedTimestamp>
       <SequenceIdentity>1..9999999999</SequenceIdentity>
     </sequence>
-    <sequence id="47" parent="2" name="USERS_SEQ">
+    <sequence id="46" parent="2" name="USERS_SEQ">
       <ObjectId>92350</ObjectId>
       <CreatedTimestamp>2017-03-16.20:37:22</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.20:47:12</ModifiedTimestamp>
       <SequenceIdentity>1..9999999999</SequenceIdentity>
     </sequence>
-    <table id="48" parent="2" name="ADMINISTRATION">
-      <ObjectId>92346</ObjectId>
-      <CreatedTimestamp>2017-03-16.19:17:51</CreatedTimestamp>
-      <ModifiedTimestamp>2017-03-16.19:17:51</ModifiedTimestamp>
-    </table>
-    <table id="49" parent="2" name="CART">
+    <table id="47" parent="2" name="CART">
       <ObjectId>92344</ObjectId>
       <CreatedTimestamp>2017-03-16.19:15:54</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.19:30:26</ModifiedTimestamp>
     </table>
-    <table id="50" parent="2" name="CATEGORY">
+    <table id="48" parent="2" name="CATEGORY">
       <ObjectId>92342</ObjectId>
       <CreatedTimestamp>2017-03-16.16:45:32</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.16:45:32</ModifiedTimestamp>
     </table>
-    <table id="51" parent="2" name="CLIENT">
+    <table id="49" parent="2" name="CLIENT">
       <ObjectId>92334</ObjectId>
       <CreatedTimestamp>2017-03-16.16:15:33</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.16:15:33</ModifiedTimestamp>
     </table>
-    <table id="52" parent="2" name="ORDERDETAILS">
+    <table id="50" parent="2" name="ORDERDETAILS">
       <ObjectId>92338</ObjectId>
       <CreatedTimestamp>2017-03-16.16:21:40</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.19:30:59</ModifiedTimestamp>
     </table>
-    <table id="53" parent="2" name="ORDERS">
+    <table id="51" parent="2" name="ORDERS">
       <ObjectId>92336</ObjectId>
       <CreatedTimestamp>2017-03-16.16:19:15</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.19:27:34</ModifiedTimestamp>
     </table>
-    <table id="54" parent="2" name="PRODUCT">
+    <table id="52" parent="2" name="PRODUCT">
       <ObjectId>92340</ObjectId>
       <CreatedTimestamp>2017-03-16.16:27:58</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.19:31:27</ModifiedTimestamp>
     </table>
-    <table id="55" parent="2" name="USERS">
+    <table id="53" parent="2" name="USERS">
       <ObjectId>92332</ObjectId>
       <CreatedTimestamp>2017-03-16.16:07:18</CreatedTimestamp>
-      <ModifiedTimestamp>2017-03-16.19:21:51</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-03-21.00:35:03</ModifiedTimestamp>
     </table>
-    <column id="56" parent="48" name="ADMINISTRATIONID">
+    <column id="54" parent="47" name="CARTID">
       <Position>1</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="57" parent="48" name="ADMINNAME">
-      <Position>2</Position>
-      <DataType>VARCHAR2(20)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="58" parent="48" name="ADMINPASSWORD">
-      <Position>3</Position>
-      <DataType>VARCHAR2(20)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="59" parent="48" name="ADMINISTRATION_PK">
-      <ObjectId>92347</ObjectId>
-      <CreatedTimestamp>2017-03-16.19:17:51</CreatedTimestamp>
-      <ModifiedTimestamp>2017-03-16.19:17:51</ModifiedTimestamp>
-      <TablespaceName>USERS</TablespaceName>
-      <ColNames>ADMINISTRATIONID</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="60" parent="48" name="ADMINISTRATION_PK">
-      <ModifiedTimestamp>2017-03-16.19:17:51</ModifiedTimestamp>
-      <ColNames>ADMINISTRATIONID</ColNames>
-      <InitiallyDeferred>1</InitiallyDeferred>
-      <UnderlyingIndexName>ADMINISTRATION_PK</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <trigger id="61" parent="48" name="ADMINISTRATION_AUTONUMERATION">
-      <ObjectId>92373</ObjectId>
-      <CreatedTimestamp>2017-03-16.22:56:57</CreatedTimestamp>
-      <ModifiedTimestamp>2017-03-16.22:56:57</ModifiedTimestamp>
-      <Events>I</Events>
-      <Turn>before-row</Turn>
-    </trigger>
-    <column id="62" parent="49" name="CARTID">
-      <Position>1</Position>
-      <DataType>NUMBER(10)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="63" parent="49" name="USERID">
+    <column id="55" parent="47" name="USERID">
       <Position>2</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="64" parent="49" name="PRODUCTID">
+    <column id="56" parent="47" name="PRODUCTID">
       <Position>3</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="65" parent="49" name="QUANTITY">
+    <column id="57" parent="47" name="QUANTITY">
       <Position>4</Position>
       <DataType>NUMBER(4)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="66" parent="49" name="TOTALPRICE">
+    <column id="58" parent="47" name="TOTALPRICE">
       <Position>5</Position>
       <DataType>NUMBER(10,2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="67" parent="49" name="CART_PK">
+    <index id="59" parent="47" name="CART_PK">
       <ObjectId>92345</ObjectId>
       <CreatedTimestamp>2017-03-16.19:15:54</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.19:15:54</ModifiedTimestamp>
@@ -279,50 +231,50 @@
       <ColNames>CARTID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="68" parent="49" name="CART_PK">
+    <key id="60" parent="47" name="CART_PK">
       <ModifiedTimestamp>2017-03-16.19:15:54</ModifiedTimestamp>
       <ColNames>CARTID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>CART_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="69" parent="49" name="CARTUSERID">
+    <foreign-key id="61" parent="47" name="CARTUSERID">
       <ModifiedTimestamp>2017-03-16.19:29:58</ModifiedTimestamp>
       <ColNames>USERID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <RefTableName>USERS</RefTableName>
       <RefKeyName>USERS_PK</RefKeyName>
     </foreign-key>
-    <foreign-key id="70" parent="49" name="CARTPRODUCTID">
+    <foreign-key id="62" parent="47" name="CARTPRODUCTID">
       <ModifiedTimestamp>2017-03-16.19:30:26</ModifiedTimestamp>
       <ColNames>PRODUCTID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <RefTableName>PRODUCT</RefTableName>
       <RefKeyName>PRODUCT_PK</RefKeyName>
     </foreign-key>
-    <trigger id="71" parent="49" name="CART_AUTONUMERATION">
+    <trigger id="63" parent="47" name="CART_AUTONUMERATION">
       <ObjectId>92371</ObjectId>
       <CreatedTimestamp>2017-03-16.22:55:03</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.22:55:03</ModifiedTimestamp>
       <Events>I</Events>
       <Turn>before-row</Turn>
     </trigger>
-    <column id="72" parent="50" name="CATEGORYID">
+    <column id="64" parent="48" name="CATEGORYID">
       <Position>1</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="73" parent="50" name="CATEGORYNAME">
+    <column id="65" parent="48" name="CATEGORYNAME">
       <Position>2</Position>
       <DataType>VARCHAR2(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="74" parent="50" name="CATEGORYDESCRIPRION">
+    <column id="66" parent="48" name="CATEGORYDESCRIPRION">
       <Position>3</Position>
       <DataType>VARCHAR2(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="75" parent="50" name="CATEGORY_PK">
+    <index id="67" parent="48" name="CATEGORY_PK">
       <ObjectId>92343</ObjectId>
       <CreatedTimestamp>2017-03-16.16:45:32</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.16:45:32</ModifiedTimestamp>
@@ -330,61 +282,61 @@
       <ColNames>CATEGORYID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="76" parent="50" name="CATEGORY_PK">
+    <key id="68" parent="48" name="CATEGORY_PK">
       <ModifiedTimestamp>2017-03-16.16:45:32</ModifiedTimestamp>
       <ColNames>CATEGORYID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>CATEGORY_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <trigger id="77" parent="50" name="CATEGORY_AUTONUMERATION">
+    <trigger id="69" parent="48" name="CATEGORY_AUTONUMERATION">
       <ObjectId>92377</ObjectId>
       <CreatedTimestamp>2017-03-16.23:01:27</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.23:01:27</ModifiedTimestamp>
       <Events>I</Events>
       <Turn>before-row</Turn>
     </trigger>
-    <column id="78" parent="51" name="CLIENTID">
+    <column id="70" parent="49" name="CLIENTID">
       <Position>1</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="79" parent="51" name="FIRSTNAME">
+    <column id="71" parent="49" name="FIRSTNAME">
       <Position>2</Position>
       <DataType>VARCHAR2(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="80" parent="51" name="LASTNAME">
+    <column id="72" parent="49" name="LASTNAME">
       <Position>3</Position>
       <DataType>VARCHAR2(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="81" parent="51" name="EMAILADDRESS">
+    <column id="73" parent="49" name="EMAILADDRESS">
       <Position>4</Position>
       <DataType>VARCHAR2(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="82" parent="51" name="STREET">
+    <column id="74" parent="49" name="STREET">
       <Position>5</Position>
       <DataType>VARCHAR2(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="83" parent="51" name="NUMBERHOUSE">
+    <column id="75" parent="49" name="NUMBERHOUSE">
       <Position>6</Position>
       <DataType>VARCHAR2(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="84" parent="51" name="POSTCODE">
+    <column id="76" parent="49" name="POSTCODE">
       <Position>7</Position>
       <DataType>VARCHAR2(6)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="85" parent="51" name="CITY">
+    <column id="77" parent="49" name="CITY">
       <Position>8</Position>
       <DataType>VARCHAR2(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="86" parent="51" name="CLIENT_PK">
+    <index id="78" parent="49" name="CLIENT_PK">
       <ObjectId>92335</ObjectId>
       <CreatedTimestamp>2017-03-16.16:15:33</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.16:15:33</ModifiedTimestamp>
@@ -392,46 +344,46 @@
       <ColNames>CLIENTID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="87" parent="51" name="CLIENT_PK">
+    <key id="79" parent="49" name="CLIENT_PK">
       <ModifiedTimestamp>2017-03-16.16:15:33</ModifiedTimestamp>
       <ColNames>CLIENTID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>CLIENT_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <trigger id="88" parent="51" name="CLIENT_AUTONUMERATION">
+    <trigger id="80" parent="49" name="CLIENT_AUTONUMERATION">
       <ObjectId>92349</ObjectId>
       <CreatedTimestamp>2017-03-16.20:17:07</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.20:24:08</ModifiedTimestamp>
       <Events>I</Events>
       <Turn>before-row</Turn>
     </trigger>
-    <column id="89" parent="52" name="ORDERDETAILSID">
+    <column id="81" parent="50" name="ORDERDETAILSID">
       <Position>1</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="90" parent="52" name="ORDERID">
+    <column id="82" parent="50" name="ORDERID">
       <Position>2</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="91" parent="52" name="PRODUCTID">
+    <column id="83" parent="50" name="PRODUCTID">
       <Position>3</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="92" parent="52" name="QUANTITY">
+    <column id="84" parent="50" name="QUANTITY">
       <Position>4</Position>
       <DataType>NUMBER(4)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="93" parent="52" name="TOTALPRICE">
+    <column id="85" parent="50" name="TOTALPRICE">
       <Position>5</Position>
       <DataType>NUMBER(10,2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="94" parent="52" name="ORDERDETAILS_PK">
+    <index id="86" parent="50" name="ORDERDETAILS_PK">
       <ObjectId>92339</ObjectId>
       <CreatedTimestamp>2017-03-16.16:21:40</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.16:21:40</ModifiedTimestamp>
@@ -439,55 +391,55 @@
       <ColNames>ORDERDETAILSID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="95" parent="52" name="ORDERDETAILS_PK">
+    <key id="87" parent="50" name="ORDERDETAILS_PK">
       <ModifiedTimestamp>2017-03-16.16:21:40</ModifiedTimestamp>
       <ColNames>ORDERDETAILSID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>ORDERDETAILS_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="96" parent="52" name="ORDERID">
+    <foreign-key id="88" parent="50" name="ORDERID">
       <ModifiedTimestamp>2017-03-16.19:28:47</ModifiedTimestamp>
       <ColNames>ORDERID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <RefTableName>ORDERS</RefTableName>
       <RefKeyName>ORDERS_PK</RefKeyName>
     </foreign-key>
-    <foreign-key id="97" parent="52" name="PRODUCTID">
+    <foreign-key id="89" parent="50" name="PRODUCTID">
       <ModifiedTimestamp>2017-03-16.19:30:59</ModifiedTimestamp>
       <ColNames>PRODUCTID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <RefTableName>PRODUCT</RefTableName>
       <RefKeyName>PRODUCT_PK</RefKeyName>
     </foreign-key>
-    <trigger id="98" parent="52" name="ORDERDETAILS_AUTONUMERATION">
+    <trigger id="90" parent="50" name="ORDERDETAILS_AUTONUMERATION">
       <ObjectId>92379</ObjectId>
       <CreatedTimestamp>2017-03-16.23:02:54</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.23:02:54</ModifiedTimestamp>
       <Events>I</Events>
       <Turn>before-row</Turn>
     </trigger>
-    <column id="99" parent="53" name="ORDERID">
+    <column id="91" parent="51" name="ORDERID">
       <Position>1</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="100" parent="53" name="ORDERNUMBER">
+    <column id="92" parent="51" name="ORDERNUMBER">
       <Position>2</Position>
       <DataType>VARCHAR2(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="101" parent="53" name="ORDERDATE">
+    <column id="93" parent="51" name="ORDERDATE">
       <Position>3</Position>
       <DataType>DATE|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="102" parent="53" name="USERID">
+    <column id="94" parent="51" name="USERID">
       <Position>4</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="103" parent="53" name="ORDERS_PK">
+    <index id="95" parent="51" name="ORDERS_PK">
       <ObjectId>92337</ObjectId>
       <CreatedTimestamp>2017-03-16.16:19:16</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.16:19:16</ModifiedTimestamp>
@@ -495,63 +447,63 @@
       <ColNames>ORDERID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="104" parent="53" name="ORDERS_PK">
+    <key id="96" parent="51" name="ORDERS_PK">
       <ModifiedTimestamp>2017-03-16.16:19:16</ModifiedTimestamp>
       <ColNames>ORDERID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>ORDERS_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="105" parent="53" name="USERID">
+    <foreign-key id="97" parent="51" name="USERID">
       <ModifiedTimestamp>2017-03-16.19:27:34</ModifiedTimestamp>
       <ColNames>USERID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <RefTableName>USERS</RefTableName>
       <RefKeyName>USERS_PK</RefKeyName>
     </foreign-key>
-    <trigger id="106" parent="53" name="ORDERS_AUTONUMERATION">
+    <trigger id="98" parent="51" name="ORDERS_AUTONUMERATION">
       <ObjectId>92372</ObjectId>
       <CreatedTimestamp>2017-03-16.22:56:01</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.22:56:01</ModifiedTimestamp>
       <Events>I</Events>
       <Turn>before-row</Turn>
     </trigger>
-    <column id="107" parent="54" name="PRODUCTID">
+    <column id="99" parent="52" name="PRODUCTID">
       <Position>1</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="108" parent="54" name="PRODUCTCODE">
+    <column id="100" parent="52" name="PRODUCTCODE">
       <Position>2</Position>
       <DataType>VARCHAR2(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="109" parent="54" name="PRODUCTNAME">
+    <column id="101" parent="52" name="PRODUCTNAME">
       <Position>3</Position>
       <DataType>VARCHAR2(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="110" parent="54" name="PRODUCTPRICE">
+    <column id="102" parent="52" name="PRODUCTPRICE">
       <Position>4</Position>
       <DataType>NUMBER(10,2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="111" parent="54" name="PRODUCTPICTURE">
+    <column id="103" parent="52" name="PRODUCTPICTURE">
       <Position>5</Position>
       <DataType>VARCHAR2(200)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="112" parent="54" name="PRODUCTDESCRIPTION">
+    <column id="104" parent="52" name="PRODUCTDESCRIPTION">
       <Position>6</Position>
       <DataType>VARCHAR2(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="113" parent="54" name="CATEGORYID">
+    <column id="105" parent="52" name="CATEGORYID">
       <Position>7</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="114" parent="54" name="PRODUCT_PK">
+    <index id="106" parent="52" name="PRODUCT_PK">
       <ObjectId>92341</ObjectId>
       <CreatedTimestamp>2017-03-16.16:27:58</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.16:27:58</ModifiedTimestamp>
@@ -559,48 +511,53 @@
       <ColNames>PRODUCTID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="115" parent="54" name="PRODUCT_PK">
+    <key id="107" parent="52" name="PRODUCT_PK">
       <ModifiedTimestamp>2017-03-16.16:27:58</ModifiedTimestamp>
       <ColNames>PRODUCTID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>PRODUCT_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="116" parent="54" name="CATEGORYID">
+    <foreign-key id="108" parent="52" name="CATEGORYID">
       <ModifiedTimestamp>2017-03-16.19:31:27</ModifiedTimestamp>
       <ColNames>CATEGORYID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <RefTableName>CATEGORY</RefTableName>
       <RefKeyName>CATEGORY_PK</RefKeyName>
     </foreign-key>
-    <trigger id="117" parent="54" name="PRODUCT_AUTONUMERATION">
+    <trigger id="109" parent="52" name="PRODUCT_AUTONUMERATION">
       <ObjectId>92375</ObjectId>
       <CreatedTimestamp>2017-03-16.22:58:40</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.22:58:40</ModifiedTimestamp>
       <Events>I</Events>
       <Turn>before-row</Turn>
     </trigger>
-    <column id="118" parent="55" name="USERID">
+    <column id="110" parent="53" name="USERID">
       <Position>1</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="119" parent="55" name="USERNAME">
+    <column id="111" parent="53" name="USERNAME">
       <Position>2</Position>
       <DataType>VARCHAR2(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="120" parent="55" name="PASSWORD">
+    <column id="112" parent="53" name="PASSWORD">
       <Position>3</Position>
       <DataType>VARCHAR2(32)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="121" parent="55" name="CLIENTID">
+    <column id="113" parent="53" name="CLIENTID">
       <Position>4</Position>
       <DataType>NUMBER(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="122" parent="55" name="USERS_PK">
+    <column id="114" parent="53" name="USERROLE">
+      <Position>5</Position>
+      <DataType>VARCHAR2(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="115" parent="53" name="USERS_PK">
       <ObjectId>92333</ObjectId>
       <CreatedTimestamp>2017-03-16.16:07:19</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.16:07:19</ModifiedTimestamp>
@@ -608,21 +565,21 @@
       <ColNames>USERID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="123" parent="55" name="USERS_PK">
+    <key id="116" parent="53" name="USERS_PK">
       <ModifiedTimestamp>2017-03-16.16:07:19</ModifiedTimestamp>
       <ColNames>USERID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>USERS_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="124" parent="55" name="CLIENTID">
+    <foreign-key id="117" parent="53" name="CLIENTID">
       <ModifiedTimestamp>2017-03-16.19:21:51</ModifiedTimestamp>
       <ColNames>CLIENTID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <RefTableName>CLIENT</RefTableName>
       <RefKeyName>CLIENT_PK</RefKeyName>
     </foreign-key>
-    <trigger id="125" parent="55" name="USERS_AUTONUMERATION">
+    <trigger id="118" parent="53" name="USERS_AUTONUMERATION">
       <ObjectId>92351</ObjectId>
       <CreatedTimestamp>2017-03-16.21:03:44</CreatedTimestamp>
       <ModifiedTimestamp>2017-03-16.21:03:44</ModifiedTimestamp>

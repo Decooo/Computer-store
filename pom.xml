@@ -5,7 +5,7 @@
   <artifactId>ComputerStore</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>ComputerStore Maven Webapp</name>
+  <name>ComputerStoreMavenWebapp</name>
   <url>http://maven.apache.org</url>
 
   <dependencies>
@@ -141,6 +141,15 @@
       <artifactId>commons-validator</artifactId>
       <version>1.5.0</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons-core -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-commons-core</artifactId>
+      <version>1.4.0.RELEASE</version>
+    </dependency>
+
+
 
   </dependencies>
 
