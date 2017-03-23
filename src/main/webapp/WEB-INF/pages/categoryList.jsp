@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Lista Kategorii</title>
+    <title>Lista Kategorii -- -- PAGES</title>
 </head>
 <body>
 <h1>Lista kategorii</h1>
@@ -18,11 +18,11 @@
     <th>CategoryID</th>
     <th>CategoryName</th>
     <th>CategoryDescription</th>
-    <list:forEach items="%{category}" var="cat">
+    <list:forEach items="${category}" var="category">
         <tr>
-            <td>%{category.categoryID}</td>
-            <td>%{category.categoryName}</td>
-            <td>%{category.categoryDescription}</td>
+            <td>${category.categoryID}</td>
+            <td>${category.categoryName}</td>
+            <td>${category.categoryDescription}</td>
         </tr>
     </list:forEach>
 </table>
