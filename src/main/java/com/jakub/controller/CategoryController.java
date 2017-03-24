@@ -1,11 +1,9 @@
 package com.jakub.controller;
 
-import com.jakub.com.jakub.dao.impl.CategoryDAOImpl;
 import com.jakub.dao.CategoryDAO;
 import com.jakub.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,12 +20,27 @@ public class CategoryController {
     @Autowired
     private CategoryDAO categoryDAO;
 
-    @RequestMapping(value = {"/view"}, method = RequestMethod.GET)
+    @RequestMapping("/add")
+    public ModelAndView add() {
+        ModelAndView model = new ModelAndView("addCategory");
+        model.addObject("category", new Category());
+        return model;
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String save(Category category) {
+        categoryDAO.add(category.getCategoryName(), category.getCategoryDescription());
+
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = {"/view"})
     public ModelAndView view() {
-//        List<CategoryDAO> categoryList = this.categoryDAO.listCategoryDao();
-//        model.addAttribute("categoryList", categoryList);
+        List<Category> iterable = categoryDAO.findAll();
 
+        ModelAndView model = new ModelAndView("categoryList");
+        model.addObject("categories", iterable);
 
-        return new ModelAndView("categoryList");
+        return model;
     }
 }
