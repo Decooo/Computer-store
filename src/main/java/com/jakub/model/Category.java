@@ -5,16 +5,17 @@ import javax.persistence.*;
 /**
  * Created by Jakub on 23.03.2017.
  */
-@Entity
 @Table(name = "category")
-public class Category{
+@Entity
+public class Category {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer categoryID;
-
+    @Column(name = "categoryName")
     private String categoryName;
-
+    @Column(name = "categoryDescription")
     private String categoryDescription;
 
     @Override

@@ -24,7 +24,7 @@ import java.util.Properties;
 @Configuration
 @ComponentScan("com.jakub.*")
 @EnableTransactionManagement
-@PropertySource("classpath:ds-hibernate-cfg.properties")
+@PropertySource("classpath:application.properties")
 public class ApplicationContextConfig {
     @Autowired
     private Environment env;
@@ -60,7 +60,6 @@ public class ApplicationContextConfig {
         dataSource.setUser(env.getProperty("ds.username"));
         dataSource.setPassword(env.getProperty("ds.password"));
 
-        System.out.println("## getDataSource: " + dataSource);
         return dataSource;
     }
 
@@ -72,6 +71,7 @@ public class ApplicationContextConfig {
         properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
         properties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         properties.put("current_session_context_class", env.getProperty("current_session_context_class"));
+
 
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 

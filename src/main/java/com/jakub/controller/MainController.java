@@ -12,7 +12,6 @@ public class MainController {
 
     @RequestMapping("/")
     public ModelAndView index() {
-        System.out.println("#### index.jsp");
 
         return new ModelAndView("index");
     }
