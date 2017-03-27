@@ -1,17 +1,21 @@
 package com.jakub.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Jakub on 23.03.2017.
  */
-@Table(name = "category")
+
+
 @Entity
-public class Category {
+@Table(name = "category")
+public class Category{
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "categoryID")
     private Integer categoryID;
     @Column(name = "categoryName")
     private String categoryName;

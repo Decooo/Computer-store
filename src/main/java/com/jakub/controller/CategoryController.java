@@ -34,9 +34,11 @@ public class CategoryController {
         return "redirect:/";
     }
 
+    //nie działą
+
     @RequestMapping(value = {"/view"})
     public ModelAndView view() {
-        List<Category> iterable = categoryDAO.findAll();
+        List<Category[]> iterable =  categoryDAO.findCategory();
 
         ModelAndView model = new ModelAndView("categoryList");
         model.addObject("categories", iterable);
