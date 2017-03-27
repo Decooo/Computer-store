@@ -16,6 +16,8 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.Properties;
 
 /**
@@ -62,6 +64,7 @@ public class ApplicationContextConfig {
 
         return dataSource;
     }
+
 
     @Autowired
     @Bean(name = "sessionFactory")

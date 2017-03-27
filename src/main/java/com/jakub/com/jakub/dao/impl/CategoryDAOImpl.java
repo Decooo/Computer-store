@@ -2,13 +2,10 @@ package com.jakub.com.jakub.dao.impl;
 
 import com.jakub.dao.CategoryDAO;
 import com.jakub.model.Category;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -19,41 +16,65 @@ import java.util.List;
 @Repository
 public class CategoryDAOImpl implements CategoryDAO {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
+
 
     @Override
     public void add(String name, String description) {
-        Session session = sessionFactory.getCurrentSession();
-        Query query = session.createSQLQuery("CALL ADDCATEGORY(:categoryName, :categoryDescription )")
-                .addEntity(Category.class)
-                .setParameter("categoryName", name)
-                .setParameter("categoryDescription", description);
-        query.executeUpdate();
-        System.out.println("Poprawnie dodano nowa kategorie: name= " +name + " opis= " +description);
+//        Session session = sessionFactory.getCurrentSession();
+//        org.hibernate.Query query = session.createSQLQuery("CALL ADDCATEGORY(:categoryName, :categoryDescription )")
+//                .addEntity(Category.class)
+//                .setParameter("categoryName", name)
+//                .setParameter("categoryDescription", description);
+//        query.executeUpdate();
+//        System.out.println("Poprawnie dodano nowa kategorie: name= " +name + " opis= " +description);
+
+        EntityManager entityManager = emf.createEntityManager();
+        StoredProcedureQuery query = entityManager
+                .createStoredProcedureQuery("ADDCATEGORY")
+                .registerStoredProcedureParameter(1, String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(2, String.class, ParameterMode.IN)
+                .setParameter(1, name)
+                .setParameter(2, description);
+        query.execute();
+        System.out.println("Poprawnie dodano nowa kategorie: name= " + name + " opis= " + description);
+
+        entityManager.close();
+
     }
 
-    // Nie działa
 
     @Override
-    public List<String> findCategory() {
-        Session session = sessionFactory.getCurrentSession();
-        Query query = session.createSQLQuery("call VIEWALLCATEGORIES()")
-                .addEntity(Category.class);
-        List result = query.list();
-        for (int i = 0; i < result.size(); i++) {
-            Category category = (Category) result.get(i);
-            System.out.println("wynik: " + category.getCategoryName());
-        }
+    public List<Category[]> findCategory() {
 
-        return result;
+        EntityManager entityManager = emf.createEntityManager();
+        StoredProcedureQuery query = entityManager
+                .createStoredProcedureQuery("GET_CATEGORY_LIST")
+                .registerStoredProcedureParameter(1, Integer.class, ParameterMode.OUT)
+                .registerStoredProcedureParameter(2, String.class, ParameterMode.OUT)
+                .registerStoredProcedureParameter(3, String.class, ParameterMode.OUT);
+
+        query.execute();
+        System.out.println("id: " + query.getOutputParameterValue(1).toString());
+        System.out.println("name: " + query.getOutputParameterValue(2).toString());
+        System.out.println("desc: " + query.getOutputParameterValue(3).toString());
+
+        List cat = query.getResultList();
+
+        entityManager.close();
+        return cat;
     }
 
+
+    //nie działa
     @Override
-    public List<Category> findAll() {
-        Session session = sessionFactory.getCurrentSession();
+    public List<Category[]> findAll() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
+        EntityManager entityManager = emf.createEntityManager();
+        //Session session = sessionFactory.getCurrentSession();
         String hql = "SELECT * FROM category";
-        Query query = session.createSQLQuery(hql);
-        return query.list();
+        //Query query = session.createSQLQuery(hql);
+        List<Category[]> lista = entityManager.createNativeQuery(hql).getResultList();
+        return lista;
     }
 }

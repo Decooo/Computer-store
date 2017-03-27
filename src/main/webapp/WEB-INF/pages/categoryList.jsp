@@ -20,14 +20,16 @@
     <th>CategoryID</th>
     <th>CategoryName</th>
     <th>CategoryDescription</th>
+
     <list:forEach var="category" items="${categories}">
         <tr>
-            <%--<td>${category.categoryID}</td>--%>
+            <td>${category.categoryID}</td>
             <td>${category.categoryName}</td>
-            <%--<td>${category.categoryDescription}</td>--%>
+            <td>${category.categoryDescription}</td>
         </tr>
     </list:forEach>
 </table>
+
 
 </body>
 </html>
