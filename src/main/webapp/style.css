@@ -1,4 +1,15 @@
 .footer{
     text-align: center;
     color: red;
+    background-color: lightgray;
+    margin-top: 10px;
+}
+
+.header-container{
+    text-align: right;
+}
+
+.menu{
+    text-align: right;
+    background-color: lightgray;
 }

@@ -25,7 +25,6 @@ public class MyDBAuthenticationService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
         Users users = usersDAOImpl.findUsers(username);
 
         if (users == null) {
@@ -35,7 +34,7 @@ public class MyDBAuthenticationService implements UserDetailsService {
         String role = users.getUserRole();
         List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
 
-        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role);
+        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_"+role);
 
         grantList.add(grantedAuthority);
 

@@ -11,9 +11,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Lista Kategorii -- -- PAGES</title>
+    <title>Lista Kategorii </title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
+<jsp:include page="_header.jsp"/>
+<jsp:include page="_menu.jsp"/>
+
 <h1>Lista kategorii</h1>
 
 <table border="1">
@@ -30,6 +34,6 @@
     </list:forEach>
 </table>
 
-
+<jsp:include page="_footer.jsp"/>
 </body>
 </html>

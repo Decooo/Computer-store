@@ -14,6 +14,7 @@
 </head>
 <body>
 <jsp:include page="_header.jsp"/>
+<jsp:include page="_menu.jsp"/>
 Informacje o koncie
 
 <div class="account-container">

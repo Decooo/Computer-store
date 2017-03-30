@@ -9,8 +9,14 @@
 <html>
 <head>
     <title>Strona produktów</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
+<jsp:include page="_header.jsp"/>
+<jsp:include page="_menu.jsp"/>
 Strona produktów
+
+
+<jsp:include page="_footer.jsp"/>
 </body>
 </html>

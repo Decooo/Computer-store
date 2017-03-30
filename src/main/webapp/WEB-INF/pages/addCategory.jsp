@@ -10,8 +10,11 @@
 <html>
 <head>
     <title>Dodawanie kategorii</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 </head>
 <body>
+<jsp:include page="_header.jsp"/>
+<jsp:include page="_menu.jsp"/>
 <h1>Dodawanie kategorii</h1>
 
 <form:form commandName="category" action="save" method="POST">
@@ -22,5 +25,6 @@
     <form:button>Zapisz</form:button>
 </form:form>
 
+<jsp:include page="_footer.jsp"/>
 </body>
 </html>

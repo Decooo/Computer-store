@@ -10,7 +10,7 @@
 
 <body>
 <jsp:include page="_header.jsp"/>
-
+<jsp:include page="_menu.jsp"/>
 <h2>Sklep komputerowy</h2>
 
 <h1>Lista kategorii</h1>
