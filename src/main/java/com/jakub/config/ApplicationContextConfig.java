@@ -1,5 +1,9 @@
 package com.jakub.config;
 
+import com.jakub.com.jakub.dao.impl.CategoryDAOImpl;
+import com.jakub.com.jakub.dao.impl.UsersDAOImpl;
+import com.jakub.dao.CategoryDAO;
+import com.jakub.dao.UsersDAO;
 import com.mchange.v2.c3p0.DriverManagerDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,5 +97,15 @@ public class ApplicationContextConfig {
     public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
         return transactionManager;
+    }
+
+    @Bean(name = "categoryDAO")
+    public CategoryDAO getCategoryDAO() {
+        return new CategoryDAOImpl();
+    }
+
+    @Bean(name = "usersDAO")
+    public UsersDAO getUsersDAO() {
+        return new UsersDAOImpl();
     }
 }
