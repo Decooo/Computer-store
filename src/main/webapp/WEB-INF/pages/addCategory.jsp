@@ -19,8 +19,8 @@
 
 <form:form commandName="category" action="save" method="POST">
 
-    <form:input path="categoryName"/><br/>
-    <form:input path="categoryDescription"/><br/>
+    Nazwa: <form:input path="categoryName"/><form:errors path="categoryName"/> <br/>
+    Opis: <form:input path="categoryDescription"/><form:errors path="categoryDescription"/><br/>
 
     <form:button>Zapisz</form:button>
 </form:form>

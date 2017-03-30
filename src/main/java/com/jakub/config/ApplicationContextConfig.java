@@ -1,7 +1,7 @@
 package com.jakub.config;
 
-import com.jakub.com.jakub.dao.impl.CategoryDAOImpl;
-import com.jakub.com.jakub.dao.impl.UsersDAOImpl;
+import com.jakub.daoimpl.CategoryDAOImpl;
+import com.jakub.daoimpl.UsersDAOImpl;
 import com.jakub.dao.CategoryDAO;
 import com.jakub.dao.UsersDAO;
 import com.mchange.v2.c3p0.DriverManagerDataSource;
@@ -20,8 +20,6 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.util.Properties;
 
 /**

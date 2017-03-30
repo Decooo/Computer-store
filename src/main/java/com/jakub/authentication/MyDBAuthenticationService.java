@@ -1,6 +1,6 @@
 package com.jakub.authentication;
 
-import com.jakub.com.jakub.dao.impl.UsersDAOImpl;
+import com.jakub.daoimpl.UsersDAOImpl;
 import com.jakub.model.Users;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

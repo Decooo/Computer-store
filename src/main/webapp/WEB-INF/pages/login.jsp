@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Logowanie</title>
@@ -16,31 +17,36 @@
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
 
-Formularz logowania
+Logowanie:<br/>
 
 <div class="login">
     Podaj login i hasło użytkownika:
     <br/>
     <c:if test="${param.error == 'true'}">
-        <div style="color: red; margin: 10px 0px;">
+        <div class="error">
 
-            Login Failed!!!<br /> Reason :
-                ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+            Logowanie niepoprawne!<br/>
+                ${error}
 
         </div>
     </c:if>
 
-    <form method="post" action="${pageContext.request.contextPath}/j_spring_security_check" role="form">
+    <c:if test="${not empty msg}">
+        <div class="msg">${msg}</div>
+    </c:if>
+
+    <form method="post" action="${pageContext.request.contextPath}j_spring_security_check" role="form">
         <table>
             <tr>
                 <td>Nazwa użytkownika:</td>
-                <td><input type="text" name="username"/></td>
+                <td><input type="text" name="username"/> </td>
             </tr>
 
             <tr>
                 <td>Hasło:</td>
                 <td><input type="password" name="password"/></td>
-            </tr>
+
+           </tr>
 
             <tr>
                 <td>&nbsp;</td>
