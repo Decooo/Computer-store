@@ -69,5 +69,9 @@
       <artifact name="HSQLDB" use="true" />
       <option name="auto-sync" value="true" />
     </driver>
+    <driver id="oracle.jdbc.driver.OracleDriver" name="oracle.jdbc.driver.OracleDriver" dialect="Oracle" driver-class="oracle.jdbc.driver.OracleDriver">
+      <option name="auto-commit" value="true" />
+      <option name="auto-sync" value="true" />
+    </driver>
   </component>
 </application>
