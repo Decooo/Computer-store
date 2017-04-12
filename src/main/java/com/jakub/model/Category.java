@@ -1,9 +1,6 @@
 package com.jakub.model;
 
-import com.sun.istack.internal.NotNull;
-
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * Created by Jakub on 23.03.2017.
@@ -12,7 +9,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "category")
-public class Category{
+public class Category {
 
 
     @Id

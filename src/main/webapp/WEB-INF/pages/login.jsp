@@ -35,28 +35,30 @@ Logowanie:<br/>
         <div class="msg">${msg}</div>
     </c:if>
 
+
     <form method="post" action="${pageContext.request.contextPath}j_spring_security_check" role="form">
         <table>
             <tr>
                 <td>Nazwa użytkownika:</td>
-                <td><input type="text" name="username"/> </td>
+                <td><input type="text" name="username"/></td>
             </tr>
 
             <tr>
                 <td>Hasło:</td>
                 <td><input type="password" name="password"/></td>
 
-           </tr>
+            </tr>
 
             <tr>
                 <td>&nbsp;</td>
                 <td><input type="submit" value="Zaloguj"></td>
+                <td><input type="submit" value="Zarejestruj" onclick="form.action='registration';"> </td>
             </tr>
 
         </table>
     </form>
 </div>
 
-<jsp:include page="_footer.jsp" />
+<jsp:include page="_footer.jsp"/>
 </body>
 </html>

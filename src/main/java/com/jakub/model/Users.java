@@ -22,6 +22,7 @@ public class Users {
     @Column(name = "userRole")
     private String userRole;
 
+
     public Users(int id, String username, String password, int idClient, String role) {
         this.userId = id;
         this.username = username;

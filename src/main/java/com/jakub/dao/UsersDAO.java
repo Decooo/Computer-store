@@ -8,4 +8,6 @@ import com.jakub.model.Users;
 public interface UsersDAO {
 
     Users findUsers(String username);
+
+    Integer findUsersID(String username);
 }

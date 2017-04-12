@@ -26,7 +26,7 @@ public class CategoryValidator implements Validator {
             errors.rejectValue("categoryName", "SmallSize.categoryForm.categoryName");
         }
         if (category.getCategoryDescription().length() < 10) {
-            errors.rejectValue("categoryName", "SmallSize.categoryForm.categoryDescription");
+            errors.rejectValue("categoryDescription", "SmallSize.categoryForm.categoryDescription");
         }
     }
 }
