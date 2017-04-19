@@ -52,7 +52,7 @@ Logowanie:<br/>
             <tr>
                 <td>&nbsp;</td>
                 <td><input type="submit" value="Zaloguj"></td>
-                <td><input type="submit" value="Zarejestruj" onclick="form.action='registration';"> </td>
+                <td><input type="submit" value="Zarejestruj" onclick="form.action='registration';"></td>
             </tr>
 
         </table>

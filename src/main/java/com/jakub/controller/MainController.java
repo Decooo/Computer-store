@@ -2,22 +2,20 @@ package com.jakub.controller;
 
 import com.jakub.dao.ClientDAO;
 import com.jakub.dao.UsersDAO;
-import com.jakub.model.Category;
 import com.jakub.model.Client;
 import com.jakub.model.Users;
 import com.jakub.validator.ClientValidator;
+import com.jakub.validator.UsersValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -32,16 +30,20 @@ import java.security.Principal;
 public class MainController {
 
     @Autowired
-    private ClientDAO clientDAO;
+    private UsersDAO usersDAO;
 
     @Autowired
-    private UsersDAO usersDAO;
+    private ClientDAO clientDAO;
+
 
     @Autowired
     private ResourceBundleMessageSource messageSource;
 
     @Autowired
     private ClientValidator clientValidator;
+
+    @Autowired
+    private UsersValidator usersValidator;
 
     @InitBinder
     public void myInitBinder(WebDataBinder dataBinder) {
@@ -53,6 +55,8 @@ public class MainController {
 
         if (target.getClass() == Client.class) {
             dataBinder.setValidator(clientValidator);
+        } else if (target.getClass() == Users.class) {
+            dataBinder.setValidator(usersValidator);
         }
     }
 
@@ -92,21 +96,35 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/registration"}, method = RequestMethod.POST)
-    public ModelAndView registration(Users users) {
-        ModelAndView model = new ModelAndView("registration");
-        model.addObject("registration", new Client());
+    public String registration(ModelMap registration) {
 
-        return model;
+        registration.addAttribute("users", new Users());
+        registration.addAttribute("client", new Client());
+
+        return "registration";
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(Model model, Users users, @Validated Client client, BindingResult bindingResult) {
+    public ModelAndView save(Model model, @ModelAttribute("users") Users users, @ModelAttribute("client") @Validated Client client, BindingResult bindingResult) {
+
+        ModelAndView m = new ModelAndView("registration");
 
         if (bindingResult.hasErrors()) {
-            return "registration";
-        }
-        try {
-            if (usersDAO.findUsersID(users.getUsername()) == -1) {
+            model.addAttribute("result", bindingResult);
+            m.addObject("css", "error");
+            m.addObject("msg", "Nie wprowadzono wszystkich danych lub wprowadzono je niepoprawnie!");
+            return m;
+        } else {
+
+            if (users.getUsername().equals("")) {
+                m.addObject("css", "error");
+                m.addObject("msg", "Nie podano nazwy uzytkownika!");
+                return m;
+            } else if (users.getPassword().equals("")) {
+                m.addObject("css", "error");
+                m.addObject("msg", "Nie podano hasla!");
+                return m;
+            } else if (usersDAO.findUsersID(users.getUsername()) == -1) {
                 clientDAO.addClientAndUser(
                         client.getFirstName(),
                         client.getLastName(),
@@ -118,16 +136,16 @@ public class MainController {
                         users.getUsername(),
                         users.getPassword());
 
-                return "redirect:/login";}
-             else {
-                return "redirect:/registration";
+                m.addObject("css", "msgSuccess");
+                m.addObject("msg", "Rejestracja zakonczona sukcesem");
+                return m;
+            } else {
+                m.addObject("css", "error");
+                m.addObject("msg", "Użytkownik o takim nicku już istnieje!");
+                return m;
             }
-        } catch (Exception e) {
-            String message = e.getMessage();
-            model.addAttribute("message", message);
-            return "registration";
         }
-//        return "registration";
+
     }
 
     @RequestMapping("/logout")
@@ -148,3 +166,4 @@ public class MainController {
     }
 
 }
+

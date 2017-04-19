@@ -1,9 +1,6 @@
 package com.jakub.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Jakub on 06.04.2017.
@@ -12,7 +9,7 @@ import javax.persistence.Table;
 @Table(name = "client")
 public class Client {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer clientID;
     private String firstName;
     private String lastName;

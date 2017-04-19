@@ -1,6 +1,7 @@
 package com.jakub.validator;
 
 import com.jakub.model.Client;
+import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -11,6 +12,8 @@ import org.springframework.validation.Validator;
  */
 @Component
 public class ClientValidator implements Validator {
+
+    private EmailValidator emailValidator = EmailValidator.getInstance();
     @Override
     public boolean supports(Class<?> clazz) {
         return clazz == Client.class;
@@ -19,13 +22,17 @@ public class ClientValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Client client = (Client) target;
-        ValidationUtils.rejectIfEmpty(errors,"firstName","NotEmpty.registrationForm.firstName");
-        ValidationUtils.rejectIfEmpty(errors,"lastName","NotEmpty.registrationForm.lastName");
-        ValidationUtils.rejectIfEmpty(errors,"emailAddress","NotEmpty.registrationForm.emailAddress");
-        ValidationUtils.rejectIfEmpty(errors,"street","NotEmpty.registrationForm.street");
-        ValidationUtils.rejectIfEmpty(errors,"numberHouse","NotEmpty.registrationForm.numberHouse");
-        ValidationUtils.rejectIfEmpty(errors,"postCode","NotEmpty.registrationForm.postCode");
-        ValidationUtils.rejectIfEmpty(errors,"city","NotEmpty.registrationForm.city");
+        ValidationUtils.rejectIfEmpty(errors,"firstName","NotEmpty.client.firstName","Błąd");
+        ValidationUtils.rejectIfEmpty(errors,"lastName","NotEmpty.client.lastName");
+        ValidationUtils.rejectIfEmpty(errors,"emailAddress","NotEmpty.client.emailAddress");
+        ValidationUtils.rejectIfEmpty(errors,"street","NotEmpty.client.street");
+        ValidationUtils.rejectIfEmpty(errors,"numberHouse","NotEmpty.client.numberHouse");
+        ValidationUtils.rejectIfEmpty(errors,"postCode","NotEmpty.client.postCode");
+        ValidationUtils.rejectIfEmpty(errors,"city","NotEmpty.client.city");
+
+        if (!emailValidator.isValid(client.getEmailAddress())) {
+            errors.rejectValue("emailAddress", "Pattern.registration.emailAddress");
+        }
 
     }
 }

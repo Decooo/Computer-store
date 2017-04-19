@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>Rejestracja</title>
@@ -19,58 +21,72 @@
 
 Rejestracja:<br/>
 
-<form method="post" action="${pageContext.request.contextPath}save" role="form">
+
+<c:if test="${not empty msg}">
+    <div class=${css}>${msg}</div>
+</c:if>
+
+<form:form commandName="registration" method="post" action="${pageContext.request.contextPath}save" role="form">
     <table>
         <tr>
             <td>Nazwa uzytkownika:</td>
             <td><input type="text" name="username"/></td>
+            <td><form:errors path="username" name="username"/></td>
         </tr>
 
         <tr>
             <td>Haslo:</td>
             <td><input type="text" name="password"/></td>
+            <td><form:errors path="password" name="password"/></td>
         </tr>
 
         <tr>
             <td>Imie:</td>
-            <td><input type="text" name="firstName"/><form:errors path="firstName"/></td>
+            <td><input type="text" name="firstName"/></td>
+            <td><form:errors path="firstName"/></td>
         </tr>
 
         <tr>
             <td>Nazwisko:</td>
-            <td><input type="text" name="lastName"/><form:errors path="lastName"/></td>
+            <td><input type="text" name="lastName"/></td>
+            <td><form:errors path="lastName" name="lastName"/></td>
         </tr>
 
         <tr>
             <td>email:</td>
-            <td><input type="text" name="emailAddress"/><form:errors path="emailAddress"/></td>
+            <td><input type="text" name="emailAddress"/></td>
+            <td><form:errors path="emailAddress" cssClass="error" name="emailAddress"/></td>
         </tr>
 
         <tr>
             <td>Ulica:</td>
-            <td><input type="text" name="street"/><form:errors path="street"/></td>
+            <td><input type="text" name="street"/></td>
+            <td><form:errors path="street" name="street"/></td>
         </tr>
 
         <tr>
             <td>Numer domu:</td>
-            <td><input type="text" name="numberHouse"/><form:errors path="numberHouse"/></td>
+            <td><input type="text" name="numberHouse"/></td>
+            <td><form:errors path="numberHouse" name="numberHouse"/></td>
         </tr>
 
         <tr>
             <td>Kod pocztowy:</td>
-            <td><input type="text" name="postCode"/><form:errors path="postCode"/></td>
+            <td><input type="text" name="postCode"/></td>
+            <td><form:errors path="postCode" name="postCode"/></td>
         </tr>
 
         <tr>
             <td>Miejscowosc:</td>
-            <td><input type="text" name="city"/><form:errors path="city"/></td>
+            <td><input type="text" name="city"/></td>
+            <td><form:errors path="city"/></td>
         </tr>
 
         <tr>
             <td><input type="submit" value="Zarejestruj"></td>
         </tr>
     </table>
-</form>
+</form:form>
 
 <jsp:include page="_footer.jsp"/>
 </body>
