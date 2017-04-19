@@ -14,7 +14,7 @@
 
     <div class="header-bar">
         <c:if test="${pageContext.request.userPrincipal.name != null}">
-            Hello
+            Witaj
             <a href="${pageContext.request.contextPath}/accountInfo">
                     ${pageContext.request.userPrincipal.name} </a>
             &nbsp;|&nbsp;

@@ -45,8 +45,8 @@ public class MainController {
     @Autowired
     private UsersValidator usersValidator;
 
-    @InitBinder
-    public void myInitBinder(WebDataBinder dataBinder) {
+    @InitBinder("client")
+    public void clientInitBinder(WebDataBinder dataBinder) {
         Object target = dataBinder.getTarget();
         if (target == null) {
             return;
@@ -55,10 +55,9 @@ public class MainController {
 
         if (target.getClass() == Client.class) {
             dataBinder.setValidator(clientValidator);
-        } else if (target.getClass() == Users.class) {
-            dataBinder.setValidator(usersValidator);
         }
     }
+
 
     @RequestMapping("/index")
     public ModelAndView index() {
@@ -105,17 +104,16 @@ public class MainController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public ModelAndView save(Model model, @ModelAttribute("users") Users users, @ModelAttribute("client") @Validated Client client, BindingResult bindingResult) {
+    public ModelAndView save(Model model, @ModelAttribute("users")Users users, @ModelAttribute("client") @Validated Client client, BindingResult bindingResult) {
 
         ModelAndView m = new ModelAndView("registration");
 
         if (bindingResult.hasErrors()) {
-            model.addAttribute("result", bindingResult);
+            m.addObject("client", bindingResult);
             m.addObject("css", "error");
             m.addObject("msg", "Nie wprowadzono wszystkich danych lub wprowadzono je niepoprawnie!");
             return m;
         } else {
-
             if (users.getUsername().equals("")) {
                 m.addObject("css", "error");
                 m.addObject("msg", "Nie podano nazwy uzytkownika!");

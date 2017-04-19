@@ -13,14 +13,9 @@
 <jsp:include page="_menu.jsp"/>
 <h2>Sklep komputerowy</h2>
 
-<h1>Lista kategorii</h1>
+Witaj na stronie naszego sklepu!
 
-<table border="1">
-    <th>CategoryID</th>
-    <th>CategoryName</th>
-    <th>CategoryDescription</th>
-
-</table>
+Życzymy miłych zakupów!
 
 <jsp:include page="_footer.jsp"/>
 

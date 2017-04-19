@@ -22,13 +22,14 @@ public class ClientValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Client client = (Client) target;
-        ValidationUtils.rejectIfEmpty(errors,"firstName","NotEmpty.client.firstName","Błąd");
+        ValidationUtils.rejectIfEmpty(errors,"firstName","NotEmpty.registration.firstName");
         ValidationUtils.rejectIfEmpty(errors,"lastName","NotEmpty.client.lastName");
         ValidationUtils.rejectIfEmpty(errors,"emailAddress","NotEmpty.client.emailAddress");
         ValidationUtils.rejectIfEmpty(errors,"street","NotEmpty.client.street");
         ValidationUtils.rejectIfEmpty(errors,"numberHouse","NotEmpty.client.numberHouse");
         ValidationUtils.rejectIfEmpty(errors,"postCode","NotEmpty.client.postCode");
-        ValidationUtils.rejectIfEmpty(errors,"city","NotEmpty.client.city");
+        ValidationUtils.rejectIfEmpty(errors,"city","NotEmpty.registrationForm.city");
+
 
         if (!emailValidator.isValid(client.getEmailAddress())) {
             errors.rejectValue("emailAddress", "Pattern.registration.emailAddress");

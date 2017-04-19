@@ -1,8 +1,6 @@
 package com.jakub.dao;
 
 import com.jakub.model.Category;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.NoRepositoryBean;
 
 import java.util.List;
 
@@ -14,8 +12,11 @@ public interface CategoryDAO{
 
     public void add(String name, String description);
 
-    public List<Category[]> findAll();
+    public void update(Integer id,String name, String description);
 
-    public List<Category[]> findCategory();
+    public List<Category> findAll();
 
+    public void deleteCategory(Integer id);
+
+    public Category findByID(Integer id);
 }

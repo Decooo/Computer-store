@@ -18,7 +18,6 @@ public class CategoryDAOImpl implements CategoryDAO {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
 
-
     @Override
     public void add(String name, String description) {
 //        Session session = sessionFactory.getCurrentSession();
@@ -43,38 +42,60 @@ public class CategoryDAOImpl implements CategoryDAO {
 
     }
 
-
     @Override
-    public List<Category[]> findCategory() {
-
+    public void update(Integer id, String name, String description) {
         EntityManager entityManager = emf.createEntityManager();
         StoredProcedureQuery query = entityManager
-                .createStoredProcedureQuery("GET_CATEGORY_LIST")
-                .registerStoredProcedureParameter(1, Integer.class, ParameterMode.OUT)
-                .registerStoredProcedureParameter(2, String.class, ParameterMode.OUT)
-                .registerStoredProcedureParameter(3, String.class, ParameterMode.OUT);
-
+                .createStoredProcedureQuery("update_category")
+                .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(2, String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(3, String.class, ParameterMode.IN)
+                .setParameter(1, id)
+                .setParameter(2, name)
+                .setParameter(3, description);
         query.execute();
-        System.out.println("id: " + query.getOutputParameterValue(1).toString());
-        System.out.println("name: " + query.getOutputParameterValue(2).toString());
-        System.out.println("desc: " + query.getOutputParameterValue(3).toString());
+        System.out.println("Zaaktualizowano poprawnie");
+        entityManager.close();
+    }
 
-        List cat = query.getResultList();
+    @Override
+    public List<Category> findAll() {
+        EntityManager entityManager = emf.createEntityManager();
+
+        List<Category> result = (List<Category>) entityManager.createNativeQuery("SELECT * FROM category", Category.class).getResultList();
 
         entityManager.close();
-        return cat;
+        return result;
     }
 
-
-    //nie działa
     @Override
-    public List<Category[]> findAll() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
+    public void deleteCategory(Integer id) {
         EntityManager entityManager = emf.createEntityManager();
-        //Session session = sessionFactory.getCurrentSession();
-        String hql = "SELECT * FROM category";
-        //Query query = session.createSQLQuery(hql);
-        List<Category[]> lista = entityManager.createNativeQuery(hql).getResultList();
-        return lista;
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("delete_category")
+                .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
+                .setParameter(1, id);
+        query.execute();
+        System.out.println("Usunieto kategorie");
+        entityManager.close();
     }
+
+    @Override
+    public Category findByID(Integer id) {
+        EntityManager entityManager = emf.createEntityManager();
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("find_category_by_id")
+                .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(2, String.class, ParameterMode.OUT)
+                .registerStoredProcedureParameter(3, String.class, ParameterMode.OUT)
+                .setParameter(1, id);
+        query.execute();
+
+        String name = query.getOutputParameterValue(2).toString();
+        String desc = query.getOutputParameterValue(3).toString();
+
+        Category category = new Category(id, name, desc);
+
+        entityManager.close();
+        return category;
+    }
+
 }

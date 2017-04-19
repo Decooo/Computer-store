@@ -21,6 +21,16 @@ public class Category {
     @Column(name = "categoryDescription")
     private String categoryDescription;
 
+    public Category(Integer id, String name, String desc) {
+    this.categoryID=id;
+    this.categoryName=name;
+    this.categoryDescription=desc;
+    }
+
+    public Category() {
+
+    }
+
     @Override
     public String toString() {
         return "Category{" +
