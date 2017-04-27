@@ -9,6 +9,7 @@
         <class>com.jakub.model.Category</class>
         <class>com.jakub.model.Users</class>
         <class>com.jakub.model.Client</class>
+        <class>com.jakub.model.Product</class>
 
 
         <properties>

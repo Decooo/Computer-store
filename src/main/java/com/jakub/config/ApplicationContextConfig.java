@@ -2,9 +2,11 @@ package com.jakub.config;
 
 import com.jakub.dao.CategoryDAO;
 import com.jakub.dao.ClientDAO;
+import com.jakub.dao.ProductDAO;
 import com.jakub.dao.UsersDAO;
 import com.jakub.daoimpl.CategoryDAOImpl;
 import com.jakub.daoimpl.ClientDAOImpl;
+import com.jakub.daoimpl.ProductDAOImpl;
 import com.jakub.daoimpl.UsersDAOImpl;
 import com.mchange.v2.c3p0.DriverManagerDataSource;
 import org.hibernate.SessionFactory;
@@ -112,5 +114,10 @@ public class ApplicationContextConfig {
     @Bean(name = "clientDAO")
     public ClientDAO getClientDAO() {
         return new ClientDAOImpl();
+    }
+
+    @Bean(name = "productDAO")
+    public ProductDAO getProductDAO() {
+        return new ProductDAOImpl();
     }
 }

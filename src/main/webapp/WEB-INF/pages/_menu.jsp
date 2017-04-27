@@ -11,10 +11,14 @@
 
 <div class="menu">
     <a href="${pageContext.request.contextPath}/">Strona główna</a>
+    <a href="${pageContext.request.contextPath}/product/list">Produkty</a>
+
 
     <security:authorize access="hasAnyRole('ROLE_administrator')">
         <a href="${pageContext.request.contextPath}/category/view">Kategorie</a>
     </security:authorize>
-
+    <security:authorize access="hasAnyRole('ROLE_administrator')">
+        <a href="${pageContext.request.contextPath}/product/add">Nowy produkt</a>
+    </security:authorize>
 
 </div>

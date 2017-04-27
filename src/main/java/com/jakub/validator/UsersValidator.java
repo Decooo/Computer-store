@@ -23,5 +23,7 @@ public class UsersValidator implements Validator {
         ValidationUtils.rejectIfEmpty(errors, "username", "NotEmpty.registrationForm.username");
         ValidationUtils.rejectIfEmpty(errors, "password", "NotEmpty.registrationForm.password");
 
+
+
     }
 }

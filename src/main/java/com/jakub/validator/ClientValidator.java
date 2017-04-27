@@ -23,7 +23,7 @@ public class ClientValidator implements Validator {
     public void validate(Object target, Errors errors) {
         Client client = (Client) target;
         ValidationUtils.rejectIfEmpty(errors,"firstName","NotEmpty.registration.firstName");
-        ValidationUtils.rejectIfEmpty(errors,"lastName","NotEmpty.client.lastName");
+        ValidationUtils.rejectIfEmpty(errors,"lastName","NotEmpty.client.lastNae");
         ValidationUtils.rejectIfEmpty(errors,"emailAddress","NotEmpty.client.emailAddress");
         ValidationUtils.rejectIfEmpty(errors,"street","NotEmpty.client.street");
         ValidationUtils.rejectIfEmpty(errors,"numberHouse","NotEmpty.client.numberHouse");
