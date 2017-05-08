@@ -12,6 +12,7 @@
 <div class="menu">
     <a href="${pageContext.request.contextPath}/">Strona główna</a>
     <a href="${pageContext.request.contextPath}/product/list">Produkty</a>
+    <a href="${pageContext.request.contextPath}/cart/view">Koszyk</a>
 
 
     <security:authorize access="hasAnyRole('ROLE_administrator')">

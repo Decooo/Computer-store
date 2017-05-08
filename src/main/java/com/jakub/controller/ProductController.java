@@ -1,11 +1,15 @@
 package com.jakub.controller;
 
+import com.jakub.dao.CartDAO;
 import com.jakub.dao.CategoryDAO;
 import com.jakub.dao.ProductDAO;
+import com.jakub.dao.UsersDAO;
 import com.jakub.model.Category;
 import com.jakub.model.Product;
 import com.jakub.validator.ProductValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 /**
@@ -31,6 +36,12 @@ public class ProductController {
 
     @Autowired
     private CategoryDAO categoryDAO;
+
+    @Autowired
+    private CartDAO cartDAO;
+
+    @Autowired
+    private UsersDAO usersDAO;
 
     @Autowired
     private ProductValidator productValidator;
@@ -76,10 +87,6 @@ public class ProductController {
     public ModelAndView save(HttpServletRequest request, ModelAndView m, @Validated Product product, BindingResult bindingResult, @ModelAttribute("file") MultipartFile file) throws IOException {
         ModelAndView model = new ModelAndView("addProduct");
 
-        System.out.println("else");
-        System.out.println("file podana = " + file.toString());
-
-
         if (bindingResult.hasErrors()) {
             populateDefaultModel(model);
             model.addObject("css", "error");
@@ -122,6 +129,58 @@ public class ProductController {
             response.getOutputStream().write(product.getPicture());
         }
         response.getOutputStream().close();
+    }
+
+    @RequestMapping(value = "/delete/{productID}", method = RequestMethod.GET)
+    public ModelAndView delete(@PathVariable("productID") int productID) {
+        ModelAndView model = new ModelAndView("redirect:/product/list");
+        productDAO.deleteProduct(productID);
+        return model;
+    }
+
+    @RequestMapping(value = "/update/{productID}", method = RequestMethod.GET)
+    public ModelAndView updateProduct(@PathVariable("productID") int productID) {
+        ModelAndView model = new ModelAndView("updateProduct");
+        Product product = productDAO.findByID(productID);
+        model.addObject("updateProduct", product);
+        model.addObject("productID", productID);
+        populateDefaultModel(model);
+        return model;
+    }
+
+    @RequestMapping(value = "saveupdate", method = RequestMethod.POST)
+    public ModelAndView update(ModelAndView model, @ModelAttribute("updateProduct") @Validated Product product, @ModelAttribute("file") MultipartFile file, BindingResult bindingResult) throws IOException {
+        ModelAndView m = new ModelAndView("updateProduct");
+        populateDefaultModel(m);
+        if (bindingResult.hasErrors()) {
+            populateDefaultModel(m);
+            m.addObject("css", "error");
+            m.addObject("msg", "Nie wprowadzono wszystkich danych albo wprowadzono je niepoprawnie!");
+            return m;
+        }
+        byte[] photoBytes = readBytesFromFile(file);
+
+        product.setPicture(photoBytes);
+
+        productDAO.update(product.getProductID(), product.getProductName(), product.getProductDescription(), product.getProductPrice(), product.getPicture(), product.getCategoryID());
+        m.setViewName("redirect:/product/list");
+        return m;
+    }
+
+    @RequestMapping(value = "/cart/{productID}")
+    public ModelAndView addToCart(ModelAndView m, Product product, Principal principal) {
+        ModelAndView model = new ModelAndView("redirect:/cart/view");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication.getName().equals("anonymousUser")) {
+            model.setViewName("redirect:/login");
+            return model;
+        } else {
+            int userID = usersDAO.findUsersID(principal.getName());
+            Product p = productDAO.findByID(product.getProductID());
+            System.out.println("productID: " + product.getProductID() + " ,cena: " + p.getProductPrice());
+            cartDAO.add(userID, product.getProductID(), 1, p.getProductPrice());
+            return model;
+        }
     }
 
 }

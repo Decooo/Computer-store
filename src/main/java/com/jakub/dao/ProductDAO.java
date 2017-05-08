@@ -16,4 +16,11 @@ public interface ProductDAO {
 
     public Product findProduct(String id);
 
+    public void deleteProduct(Integer id);
+
+    public Product findByID(Integer id);
+
+    public void update(Integer id,String name, String description, Double price, byte[] picture, Integer categoryID);
+
+
 }

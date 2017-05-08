@@ -1,12 +1,8 @@
 package com.jakub.daoimpl;
 
 import com.jakub.dao.ProductDAO;
-import com.jakub.model.Category;
 import com.jakub.model.Product;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,26 +16,25 @@ import java.util.List;
 @Transactional
 @Repository
 public class ProductDAOImpl implements ProductDAO {
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
-
     @Autowired
     SessionFactory sessionFactory;
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
 
     @Override
     public void add(Product product) {
         EntityManager entityManager = emf.createEntityManager();
         StoredProcedureQuery query = entityManager
                 .createStoredProcedureQuery("add_product")
-                .registerStoredProcedureParameter(1,String.class, ParameterMode.IN)
-                .registerStoredProcedureParameter(2,String.class,ParameterMode.IN)
-                .registerStoredProcedureParameter(3,Double.class,ParameterMode.IN)
-                .registerStoredProcedureParameter(4,byte[].class,ParameterMode.IN)
-                .registerStoredProcedureParameter(5,Integer.class,ParameterMode.IN)
-                .setParameter(1,product.getProductName())
-                .setParameter(2,product.getProductDescription())
-                .setParameter(3,product.getProductPrice())
-                .setParameter(4,product.getPicture())
-                .setParameter(5,product.getCategoryID());
+                .registerStoredProcedureParameter(1, String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(2, String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(3, Double.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(4, byte[].class, ParameterMode.IN)
+                .registerStoredProcedureParameter(5, Integer.class, ParameterMode.IN)
+                .setParameter(1, product.getProductName())
+                .setParameter(2, product.getProductDescription())
+                .setParameter(3, product.getProductPrice())
+                .setParameter(4, product.getPicture())
+                .setParameter(5, product.getCategoryID());
 
         query.execute();
         System.out.println("Dodano nowy produkt");
@@ -61,10 +56,70 @@ public class ProductDAOImpl implements ProductDAO {
     public Product findProduct(String code) {
         EntityManager entityManager = emf.createEntityManager();
 
-        Product product = (Product) entityManager.createNativeQuery("SELECT * FROM product WHERE productID='"+code+"'",Product.class).getSingleResult();
+        Product product = (Product) entityManager.createNativeQuery("SELECT * FROM product WHERE productID='" + code + "'", Product.class).getSingleResult();
         entityManager.close();
         return product;
 
+    }
+
+
+    @Override
+    public void deleteProduct(Integer id) {
+        EntityManager entityManager = emf.createEntityManager();
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("delete_product")
+                .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
+                .setParameter(1, id);
+        query.execute();
+        System.out.println("Usunieto produkt");
+        entityManager.close();
+    }
+
+    @Override
+    public Product findByID(Integer id) {
+        EntityManager entityManager = emf.createEntityManager();
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("find_product_by_id")
+                .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(2, String.class, ParameterMode.OUT)
+                .registerStoredProcedureParameter(3, String.class, ParameterMode.OUT)
+                .registerStoredProcedureParameter(4, Double.class, ParameterMode.OUT)
+                .registerStoredProcedureParameter(5, byte[].class, ParameterMode.OUT)
+                .registerStoredProcedureParameter(6, Integer.class, ParameterMode.OUT)
+                .setParameter(1, id);
+        query.execute();
+
+        String name = query.getOutputParameterValue(2).toString();
+        String desc = query.getOutputParameterValue(3).toString();
+        Double price = Double.valueOf(query.getOutputParameterValue(4).toString());
+        byte[] picture = (byte[]) query.getOutputParameterValue(5);
+        Integer categoryID = Integer.valueOf(query.getOutputParameterValue(6).toString());
+
+        Product product = new Product(id, name, price, picture, desc, categoryID);
+
+        entityManager.close();
+        return product;
+    }
+
+
+    @Override
+    public void update(Integer id, String name, String description, Double price, byte[] picture, Integer categoryID) {
+        EntityManager entityManager = emf.createEntityManager();
+        StoredProcedureQuery query = entityManager
+                .createStoredProcedureQuery("update_product")
+                .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(2, String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(3, String.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(4, Double.class, ParameterMode.IN)
+                .registerStoredProcedureParameter(5, byte[].class, ParameterMode.IN)
+                .registerStoredProcedureParameter(6, Integer.class, ParameterMode.IN)
+                .setParameter(1, id)
+                .setParameter(2, name)
+                .setParameter(3, description)
+                .setParameter(4, price)
+                .setParameter(5, picture)
+                .setParameter(6, categoryID);
+        query.execute();
+        System.out.println("Zaaktualizowano poprawnie");
+        entityManager.close();
     }
 
 }

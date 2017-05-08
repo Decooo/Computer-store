@@ -27,6 +27,16 @@ public class Product {
         this.categoryID = categoryID;
     }
 
+    public Product(Integer productID, String productName, Double productPrice, byte[] picture, String productDescription, Integer categoryID) {
+        this.productID=productID;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.picture = picture;
+        this.productDescription = productDescription;
+        this.categoryID = categoryID;
+    }
+
+
     public Product() {
     }
 
