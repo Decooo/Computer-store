@@ -47,6 +47,12 @@ public class CartController {
             int userID = usersDAO.findUsersID(principal.getName());
             List<Cart> iterable = cartDAO.findAll(userID);
             model.addObject("carts", iterable);
+            Double amount = cartDAO.amount(userID);
+            model.addObject("amount", amount);
+            Double rebate = cartDAO.rebate(userID);
+            model.addObject("rebate", rebate);
+            Double finalAmount=amount-rebate;
+            model.addObject("finalAmount",finalAmount);
             return model;
         }
     }
@@ -74,6 +80,24 @@ public class CartController {
         System.out.println("name: " + name);
 
         return name;
+    }
+
+    @RequestMapping(value = {"/addQuantity"}, method = RequestMethod.GET)
+    public ModelAndView addQuantity(HttpServletRequest request, HttpServletResponse response, Model m, @RequestParam("id") String id) {
+        ModelAndView model = new ModelAndView("redirect:/cart/view");
+
+        cartDAO.addQuantity(Integer.valueOf(id));
+
+        return model;
+    }
+
+    @RequestMapping(value = {"/reduceQuantity"}, method = RequestMethod.GET)
+    public ModelAndView reduceQuantity(HttpServletRequest request, HttpServletResponse response, Model m, @RequestParam("id") String id) {
+        ModelAndView model = new ModelAndView("redirect:/cart/view");
+
+        cartDAO.reduceQuantity(Integer.valueOf(id));
+
+        return model;
     }
 
 }

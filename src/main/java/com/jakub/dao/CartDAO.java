@@ -16,5 +16,13 @@ public interface CartDAO {
 
     public void deleteProduct(Integer id);
 
+    public Integer addQuantity(Integer id);
+
+    public Integer reduceQuantity(Integer id);
+
+    public Double amount(Integer userId);
+
+    public Double rebate(Integer userId);
+
 
 }
