@@ -41,9 +41,9 @@
 Kwota: <fmt:formatNumber value="${amount}" type="currency"/><br/>
 Rabat: <fmt:formatNumber value="${rebate}" type="currency"/><br/><br/>
 
-Kwota końcowa: <fmt:formatNumber value="${finalAmount}" type="currency"/><br/>
+Kwota końcowa: <fmt:formatNumber value="${finalAmount}" type="currency"/><br/><br/>
 
-
+<input type="submit" value="Złóż zamówienie" onclick="location.href='order'"/>
 <jsp:include page="_footer.jsp"/>
 
 </body>

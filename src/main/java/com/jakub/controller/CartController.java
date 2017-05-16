@@ -100,4 +100,11 @@ public class CartController {
         return model;
     }
 
+    @RequestMapping(value = {"/order"}, method = RequestMethod.POST)
+    public ModelAndView order(Model m) {
+        ModelAndView model = new ModelAndView("redirect:/cart/view");
+
+
+        return model;
+    }
 }

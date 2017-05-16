@@ -1,13 +1,7 @@
 package com.jakub.config;
 
-import com.jakub.dao.CategoryDAO;
-import com.jakub.dao.ClientDAO;
-import com.jakub.dao.ProductDAO;
-import com.jakub.dao.UsersDAO;
-import com.jakub.daoimpl.CategoryDAOImpl;
-import com.jakub.daoimpl.ClientDAOImpl;
-import com.jakub.daoimpl.ProductDAOImpl;
-import com.jakub.daoimpl.UsersDAOImpl;
+import com.jakub.dao.*;
+import com.jakub.daoimpl.*;
 import com.mchange.v2.c3p0.DriverManagerDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,4 +114,21 @@ public class ApplicationContextConfig {
     public ProductDAO getProductDAO() {
         return new ProductDAOImpl();
     }
+
+    @Bean(name = "cartDAO")
+    public CartDAO getCartDAO() {
+        return new CartDAOImpl();
+    }
+
+    @Bean(name = "orderDAO")
+    public OrdersDAO getOrdersDAO() {
+        return new OrdersDAOImpl();
+    }
+
+    @Bean(name = "orderDetailsDAO")
+    public OrderDetailsDAO getOrderDetailsDAO() {
+        return new OrderDetailsDAOImpl();
+    }
+
+
 }
