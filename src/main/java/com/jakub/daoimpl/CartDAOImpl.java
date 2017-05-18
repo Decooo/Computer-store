@@ -32,7 +32,7 @@ public class CartDAOImpl implements CartDAO {
 
         EntityManager entityManager = emf.createEntityManager();
         StoredProcedureQuery query = entityManager
-                .createStoredProcedureQuery("add_product_to_cart")
+                .createStoredProcedureQuery("p_cart.add_product_to_cart")
                 .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(2, Integer.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(3, Integer.class, ParameterMode.IN)
@@ -60,13 +60,14 @@ public class CartDAOImpl implements CartDAO {
     @Override
     public void deleteProduct(Integer id) {
         EntityManager entityManager = emf.createEntityManager();
-        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("delete_product_from_cart")
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("p_cart.delete_product_from_cart")
                 .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
                 .setParameter(1, id);
         query.execute();
         System.out.println("Usunieto produkt z koszyka");
         entityManager.close();
     }
+
 
     @Override
     public Integer addQuantity(final Integer id) {
@@ -78,7 +79,7 @@ public class CartDAOImpl implements CartDAO {
         Integer newQuantity = session.doReturningWork(new ReturningWork<Integer>() {
             @Override
             public Integer execute(Connection connection) throws SQLException {
-                CallableStatement call = connection.prepareCall("{? = call add_quantity(?)}");
+                CallableStatement call = connection.prepareCall("{? = call p_cart.add_quantity(?)}");
                 call.registerOutParameter(1, Types.INTEGER);
                 call.setInt(2, id);
                 call.execute();
@@ -101,7 +102,7 @@ public class CartDAOImpl implements CartDAO {
         Integer newQuantity = session.doReturningWork(new ReturningWork<Integer>() {
             @Override
             public Integer execute(Connection connection) throws SQLException {
-                CallableStatement call = connection.prepareCall("{? = call reduce_quantity(?)}");
+                CallableStatement call = connection.prepareCall("{? = call p_cart.reduce_quantity(?)}");
                 call.registerOutParameter(1, Types.INTEGER);
                 call.setInt(2, id);
                 call.execute();
@@ -117,13 +118,16 @@ public class CartDAOImpl implements CartDAO {
     @Override
     public Double amount(final Integer userId) {
         EntityManager entityManager = emf.createEntityManager();
-        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("get_amount")
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("p_cart.get_amount")
                 .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(2, Double.class, ParameterMode.OUT)
                 .setParameter(1, userId);
         query.execute();
 
         Double price = (Double) query.getOutputParameterValue(2);
+        if(price==null){
+            price=0.0;
+        }
         System.out.println("price = " + price);
         entityManager.close();
         return price;
@@ -140,7 +144,7 @@ public class CartDAOImpl implements CartDAO {
         Double rebate= session.doReturningWork(new ReturningWork<Double>() {
             @Override
             public Double execute(Connection connection) throws SQLException {
-                CallableStatement call = connection.prepareCall("{? = call calculate_rebate(?,?)}");
+                CallableStatement call = connection.prepareCall("{? = call p_cart.calculate_rebate(?,?)}");
                 call.registerOutParameter(1, Types.INTEGER);
                 call.registerOutParameter(3, Types.DOUBLE);
                 call.setInt(2, id);
@@ -152,6 +156,17 @@ public class CartDAOImpl implements CartDAO {
 
         System.out.println("rebate = " + rebate);
         return rebate;
+    }
+
+    @Override
+    public void clearCart(int userID) {
+        EntityManager entityManager = emf.createEntityManager();
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("p_cart.clear_cart")
+                .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
+                .setParameter(1, userID);
+        query.execute();
+        System.out.println("Wyczyszczono koszyk");
+        entityManager.close();
     }
 
 }

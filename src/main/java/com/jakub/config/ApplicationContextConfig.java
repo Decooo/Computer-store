@@ -120,7 +120,7 @@ public class ApplicationContextConfig {
         return new CartDAOImpl();
     }
 
-    @Bean(name = "orderDAO")
+    @Bean(name = "ordersDAO")
     public OrdersDAO getOrdersDAO() {
         return new OrdersDAOImpl();
     }

@@ -15,6 +15,7 @@
 <body>
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
+<div class="main"></div>
 Informacje o koncie
 
 <div class="account-container">
@@ -25,7 +26,7 @@ Informacje o koncie
 
     </ul>
 </div>
-
+</div>
 <jsp:include page="_footer.jsp"/>
 </body>
 </html>

@@ -17,6 +17,7 @@
 <body>
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
+<div class="main">
 <h1>Aktualizowanie kategorii</h1>
 
 <c:if test="${not empty msg}">
@@ -25,14 +26,14 @@
 
 <form:form action="/category/saveupdate" modelAttribute="updateCategory" method="POST">
     <form:hidden path="categoryID"/><br/>
-    Nazwa: <form:input path="categoryName"/><form:errors path="categoryName"/> <br/>
-    Opis: <form:textarea path="categoryDescription"/><form:errors path="categoryDescription"/><br/>
+    Nazwa: <form:input path="categoryName"/><form:errors path="categoryName"/> <br/><br/>
+    Opis: <form:textarea path="categoryDescription"/><form:errors path="categoryDescription"/><br/><br/>
 
     <form:button>Aktualizuj</form:button>
 </form:form>
 <input type="submit" value="Powrot" onclick="location.href='/category/view'"/>
 
 <jsp:include page="_footer.jsp"/>
-
+</div>
 </body>
 </html>

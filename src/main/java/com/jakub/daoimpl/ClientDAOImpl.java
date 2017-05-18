@@ -27,7 +27,7 @@ public class ClientDAOImpl implements ClientDAO {
     public void addClientAndUser(String firstName, String lastName, String emailAddress, String street, String numberHouse, String postCode, String city, String username, String password) {
         EntityManager entityManager = emf.createEntityManager();
         StoredProcedureQuery query = entityManager
-                .createStoredProcedureQuery("ADD_CLIENT")
+                .createStoredProcedureQuery("p_users.ADD_CLIENT")
                 .registerStoredProcedureParameter(1, String.class, javax.persistence.ParameterMode.IN)
                 .registerStoredProcedureParameter(2, String.class, javax.persistence.ParameterMode.IN)
                 .registerStoredProcedureParameter(3, String.class, javax.persistence.ParameterMode.IN)

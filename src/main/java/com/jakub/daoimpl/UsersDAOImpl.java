@@ -29,7 +29,7 @@ public class UsersDAOImpl implements UsersDAO {
     public Users findUsers(String username) {
         EntityManager entityManager = emf.createEntityManager();
         StoredProcedureQuery query = entityManager
-                .createStoredProcedureQuery("GET_USER")
+                .createStoredProcedureQuery("p_users.GET_USER")
                 .registerStoredProcedureParameter(1, String.class, javax.persistence.ParameterMode.INOUT)
                 .registerStoredProcedureParameter(2, Integer.class, javax.persistence.ParameterMode.OUT)
                 .registerStoredProcedureParameter(3, String.class, javax.persistence.ParameterMode.OUT)
@@ -56,7 +56,7 @@ public class UsersDAOImpl implements UsersDAO {
     public Integer findUsersID(String username) {
         EntityManager entityManager=emf.createEntityManager();
         StoredProcedureQuery query = entityManager
-                .createStoredProcedureQuery("GET_USER_ID")
+                .createStoredProcedureQuery("P_users.GET_USER_ID")
                 .registerStoredProcedureParameter(1,Integer.class, javax.persistence.ParameterMode.OUT)
                 .registerStoredProcedureParameter(2,String.class, javax.persistence.ParameterMode.IN)
                 .setParameter(2,username);

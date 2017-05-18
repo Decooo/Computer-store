@@ -30,7 +30,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
         EntityManager entityManager = emf.createEntityManager();
         StoredProcedureQuery query = entityManager
-                .createStoredProcedureQuery("ADDCATEGORY")
+                .createStoredProcedureQuery("p_category.ADDCATEGORY")
                 .registerStoredProcedureParameter(1, String.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(2, String.class, ParameterMode.IN)
                 .setParameter(1, name)
@@ -46,7 +46,7 @@ public class CategoryDAOImpl implements CategoryDAO {
     public void update(Integer id, String name, String description) {
         EntityManager entityManager = emf.createEntityManager();
         StoredProcedureQuery query = entityManager
-                .createStoredProcedureQuery("update_category")
+                .createStoredProcedureQuery("p_category.update_category")
                 .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(2, String.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(3, String.class, ParameterMode.IN)
@@ -71,7 +71,7 @@ public class CategoryDAOImpl implements CategoryDAO {
     @Override
     public void deleteCategory(Integer id) {
         EntityManager entityManager = emf.createEntityManager();
-        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("delete_category")
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("p_category.delete_category")
                 .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
                 .setParameter(1, id);
         query.execute();
@@ -82,7 +82,7 @@ public class CategoryDAOImpl implements CategoryDAO {
     @Override
     public Category findByID(Integer id) {
         EntityManager entityManager = emf.createEntityManager();
-        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("find_category_by_id")
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("p_category.find_category_by_id")
                 .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(2, String.class, ParameterMode.OUT)
                 .registerStoredProcedureParameter(3, String.class, ParameterMode.OUT)

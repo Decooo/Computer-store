@@ -24,5 +24,7 @@ public interface CartDAO {
 
     public Double rebate(Integer userId);
 
+    public void clearCart(int userID);
+
 
 }

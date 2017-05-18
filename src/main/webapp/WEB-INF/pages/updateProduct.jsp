@@ -17,6 +17,7 @@
 <body>
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
+<div class="main">
 <h1>Aktualizowanie produktu</h1>
 
 <c:if test="${not empty msg}">
@@ -25,20 +26,20 @@
 
 <form:form action="/product/saveupdate" modelAttribute="updateProduct" method="POST" enctype="multipart/form-data">
     <form:hidden path="productID"/><br/>
-    Nazwa: <form:input path="productName"/><form:errors path="productName"/> <br/>
-    Opis: <form:input path="productDescription"/><form:errors path="productDescription"/><br/>
-    Cena: <form:input path="productPrice"/><form:errors path="productPrice"/><br/>
+    Nazwa: <form:input path="productName"/><form:errors path="productName"/> <br/><br/>
+    Opis: <form:input path="productDescription"/><form:errors path="productDescription"/><br/><br/>
+    Cena: <form:input path="productPrice"/><form:errors path="productPrice"/><br/><br/>
     Kategoria: <form:select path="categoryID"><form:options items="${categoryID}" itemValue="categoryID"
                                                             itemLabel="categoryName"/> </form:select> <form:errors
-        path="categoryID"/><br/>
+        path="categoryID"/><br/><br/>
 
-    Zdjecie: <input type="file" name="file"/><br/>
+    Zdjecie: <input type="file" name="file"/><br/><br/>
 
 
     <form:button>Aktualizuj</form:button>
 </form:form>
 <input type="submit" value="Powrot" onclick="location.href='/product/list'"/>
-
+</div>
 <jsp:include page="_footer.jsp"/>
 
 </body>

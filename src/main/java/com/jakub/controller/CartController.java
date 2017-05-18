@@ -1,8 +1,6 @@
 package com.jakub.controller;
 
-import com.jakub.dao.CartDAO;
-import com.jakub.dao.ProductDAO;
-import com.jakub.dao.UsersDAO;
+import com.jakub.dao.*;
 import com.jakub.model.Cart;
 import com.jakub.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +30,12 @@ public class CartController {
     private CartDAO cartDAO;
     @Autowired
     private UsersDAO usersDAO;
-
+    @Autowired
+    private OrdersDAO ordersDAO;
     @Autowired
     private ProductDAO productDAO;
+    @Autowired
+    private OrderDetailsDAO orderDetailsDAO;
 
     @RequestMapping("/view")
     public ModelAndView view(Principal principal) {
@@ -51,8 +52,9 @@ public class CartController {
             model.addObject("amount", amount);
             Double rebate = cartDAO.rebate(userID);
             model.addObject("rebate", rebate);
-            Double finalAmount=amount-rebate;
-            model.addObject("finalAmount",finalAmount);
+            Double finalAmount = amount - rebate;
+            model.addObject("finalAmount", finalAmount);
+
             return model;
         }
     }
@@ -100,10 +102,24 @@ public class CartController {
         return model;
     }
 
-    @RequestMapping(value = {"/order"}, method = RequestMethod.POST)
-    public ModelAndView order(Model m) {
+    @RequestMapping(value = {"order"}, method = RequestMethod.POST)
+    public ModelAndView order(Model m, Cart cart, Principal principal) {
         ModelAndView model = new ModelAndView("redirect:/cart/view");
 
+        int userID = usersDAO.findUsersID(principal.getName());
+        List<Cart> iterable = cartDAO.findAll(userID);
+
+        if (iterable.size() != 0) {
+            Double amount = cartDAO.amount(userID);
+            Double rebate = cartDAO.rebate(userID);
+            Double totalPrice = amount - rebate;
+            Integer orderID = ordersDAO.addOrders(userID, totalPrice);
+            System.out.println("orderID = " + orderID);
+            for (int i = 0; i < iterable.size(); i++) {
+                orderDetailsDAO.addOrderDetails(orderID,iterable.get(i).getProductID(),iterable.get(i).getQuantity(),iterable.get(i).getTotalPrice());
+                           }
+                           cartDAO.clearCart(userID);
+        }
 
         return model;
     }

@@ -16,6 +16,7 @@
 <body>
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
+<div class="main">
 <h1>Dodawanie kategorii</h1>
 
 <c:if test="${not empty msg}">
@@ -30,7 +31,7 @@
     <form:button>Zapisz</form:button>
 </form:form>
 <input type="submit" value="Powrot" onclick="location.href='view'"/>
-
+</div>
 <jsp:include page="_footer.jsp"/>
 </body>
 </html>

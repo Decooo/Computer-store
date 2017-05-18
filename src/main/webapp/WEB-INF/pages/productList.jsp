@@ -21,7 +21,7 @@
 
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
-
+<div class="main">
 <h1>Lista produktow</h1>
 
 <c:if test="${not empty msg}">
@@ -29,7 +29,7 @@
 </c:if>
 
 
-<table border="1">
+<table border="1" align="center">
     <th>Zdjecie</th>
     <th>Nazwa</th>
     <th>Opis</th>
@@ -55,7 +55,7 @@
     </list:forEach>
 </table>
 
-
+</div>
 <jsp:include page="_footer.jsp"/>
 
 

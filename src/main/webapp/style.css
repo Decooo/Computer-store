@@ -43,3 +43,16 @@
     background-color: chartreuse;
     border-color: green;
 }
+
+.price{
+    margin-right: 50px;
+    text-align: right;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.main{
+    text-align: center;
+    margin: 20px;
+
+}

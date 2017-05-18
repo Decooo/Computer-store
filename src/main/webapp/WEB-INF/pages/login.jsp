@@ -16,11 +16,11 @@
 <body>
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
-
-Logowanie:<br/>
+<div class="main">
+<h1>Logowanie</h1><br/>
 
 <div class="login">
-    Podaj login i hasło użytkownika:
+
     <br/>
     <c:if test="${param.error == 'true'}">
         <div class="error">
@@ -37,7 +37,8 @@ Logowanie:<br/>
 
 
     <form method="post" action="${pageContext.request.contextPath}j_spring_security_check" role="form">
-        <table>
+        <h3>Podaj login i hasło użytkownika:</h3>
+        <table align="center">
             <tr>
                 <td>Nazwa użytkownika:</td>
                 <td><input type="text" name="username"/></td>
@@ -57,8 +58,19 @@ Logowanie:<br/>
 
         </table>
     </form>
-</div>
+    <br/><br/>
+   Przykladowe dane logowania<br/>
 
+    Konto administratora:<br/>
+    login: admin<br/>
+    hasło: admin<br/>
+
+    Konto użytkownika:<br/>
+    login: test<br/>
+    hasło: test<br/>
+
+</div>
+</div>
 <jsp:include page="_footer.jsp"/>
 </body>
 </html>

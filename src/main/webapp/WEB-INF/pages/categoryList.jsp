@@ -19,7 +19,7 @@
 <body>
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
-
+<div class="main">
 <h1>Lista kategorii</h1>
 
 <c:if test="${not empty msg}">
@@ -28,8 +28,8 @@
 
 <input type="submit" value="Dodaj kategorie" onclick="location.href='add'"/><input type="submit" value="Odswiez"
                                                                                    onclick="location.href='view'"/>
-
-<table border="1">
+<br/><br/>
+<table border="1" align="center">
     <th>ID</th>
     <th>Nazwa kategorii</th>
     <th>Opis kategorii</th>
@@ -47,7 +47,7 @@
 </table>
 
 
-
+</div>
 <jsp:include page="_footer.jsp"/>
 </body>
 </html>

@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="list" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 
 <html>
 <head>
@@ -18,10 +20,11 @@
 <body>
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
+<div class="main">
 <h1>Koszyk</h1>
 
 
-<table border="1">
+<table border="1" align="center">
     <th>Produkt</th>
     <th>Ilosc</th>
     <th>Cena za sztuke</th>
@@ -37,14 +40,18 @@
         </tr>
     </list:forEach>
 </table>
+</div>
 
+<div class="price">
 Kwota: <fmt:formatNumber value="${amount}" type="currency"/><br/>
 Rabat: <fmt:formatNumber value="${rebate}" type="currency"/><br/><br/>
 
 Kwota końcowa: <fmt:formatNumber value="${finalAmount}" type="currency"/><br/><br/>
 
-<input type="submit" value="Złóż zamówienie" onclick="location.href='order'"/>
+<form:form commandName="carts" action="order" method="POST">
+    <form:button >Złóż zamówienie</form:button>
+</form:form>
 <jsp:include page="_footer.jsp"/>
-
+</div>
 </body>
 </html>

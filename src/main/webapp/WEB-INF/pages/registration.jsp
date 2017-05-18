@@ -11,15 +11,15 @@
 
 <html>
 <head>
+
     <title>Rejestracja</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style.css">
 
 </head>
-<body>
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
-
-Rejestracja:<br/>
+    <div class="main">
+<h1>Rejestracja</h1><br/>
 
 
 <c:if test="${not empty msg}">
@@ -27,7 +27,8 @@ Rejestracja:<br/>
 </c:if>
 
 <form:form commandName="registration" method="post" action="${pageContext.request.contextPath}save" role="form">
-    <table>
+    <h3>Wprowadz swoje dane</h3>
+        <table align="center">
         <tr>
             <td>Nazwa uzytkownika:</td>
             <td><input type="text" name="username"/></td>
@@ -86,8 +87,9 @@ Rejestracja:<br/>
             <td><input type="submit" value="Zarejestruj"></td>
         </tr>
     </table>
-</form:form>
 
+</form:form>
+</div>
 <jsp:include page="_footer.jsp"/>
 </body>
 </html>

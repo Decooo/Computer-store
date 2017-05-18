@@ -24,7 +24,7 @@ public class ProductDAOImpl implements ProductDAO {
     public void add(Product product) {
         EntityManager entityManager = emf.createEntityManager();
         StoredProcedureQuery query = entityManager
-                .createStoredProcedureQuery("add_product")
+                .createStoredProcedureQuery("p_product.add_product")
                 .registerStoredProcedureParameter(1, String.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(2, String.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(3, Double.class, ParameterMode.IN)
@@ -66,7 +66,7 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public void deleteProduct(Integer id) {
         EntityManager entityManager = emf.createEntityManager();
-        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("delete_product")
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("p_product.delete_product")
                 .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
                 .setParameter(1, id);
         query.execute();
@@ -77,7 +77,7 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public Product findByID(Integer id) {
         EntityManager entityManager = emf.createEntityManager();
-        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("find_product_by_id")
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("p_product.find_product_by_id")
                 .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(2, String.class, ParameterMode.OUT)
                 .registerStoredProcedureParameter(3, String.class, ParameterMode.OUT)
@@ -104,7 +104,7 @@ public class ProductDAOImpl implements ProductDAO {
     public void update(Integer id, String name, String description, Double price, byte[] picture, Integer categoryID) {
         EntityManager entityManager = emf.createEntityManager();
         StoredProcedureQuery query = entityManager
-                .createStoredProcedureQuery("update_product")
+                .createStoredProcedureQuery("p_product.update_product")
                 .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(2, String.class, ParameterMode.IN)
                 .registerStoredProcedureParameter(3, String.class, ParameterMode.IN)

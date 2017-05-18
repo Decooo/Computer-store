@@ -11,12 +11,13 @@
 <body>
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
+<div class="main">
 <h2>Sklep komputerowy</h2>
 
 Witaj na stronie naszego sklepu!
 
 Życzymy miłych zakupów!
-
+</div>
 <jsp:include page="_footer.jsp"/>
 
 </body>
