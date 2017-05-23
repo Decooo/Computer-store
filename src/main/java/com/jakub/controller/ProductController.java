@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -69,6 +70,13 @@ public class ProductController {
         List<Product> iterable = productDAO.findAll();
         ModelAndView model = new ModelAndView("productList");
         model.addObject("products", iterable);
+        List<Category> category = new ArrayList<Category>();
+
+        for (Product c : iterable) {
+            category.add(categoryDAO.findByID(c.getCategoryID()));
+        }
+
+        model.addObject("categories", category);
 
         return model;
     }

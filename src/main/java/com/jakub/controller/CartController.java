@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,6 +48,17 @@ public class CartController {
         } else {
             int userID = usersDAO.findUsersID(principal.getName());
             List<Cart> iterable = cartDAO.findAll(userID);
+            List<Product> product = new ArrayList<Product>();
+
+            for (Cart c : iterable) {
+                product.add(productDAO.findByID(c.getProductID()));
+            }
+
+            for (int i = 0; i < product.size(); i++) {
+                System.out.println("productName: " + product.get(i).getProductName());
+            }
+
+            model.addObject("products", product);
             model.addObject("carts", iterable);
             Double amount = cartDAO.amount(userID);
             model.addObject("amount", amount);
@@ -54,7 +66,6 @@ public class CartController {
             model.addObject("rebate", rebate);
             Double finalAmount = amount - rebate;
             model.addObject("finalAmount", finalAmount);
-
             return model;
         }
     }
@@ -116,9 +127,9 @@ public class CartController {
             Integer orderID = ordersDAO.addOrders(userID, totalPrice);
             System.out.println("orderID = " + orderID);
             for (int i = 0; i < iterable.size(); i++) {
-                orderDetailsDAO.addOrderDetails(orderID,iterable.get(i).getProductID(),iterable.get(i).getQuantity(),iterable.get(i).getTotalPrice());
-                           }
-                           cartDAO.clearCart(userID);
+                orderDetailsDAO.addOrderDetails(orderID, iterable.get(i).getProductID(), iterable.get(i).getQuantity(), iterable.get(i).getTotalPrice());
+            }
+            cartDAO.clearCart(userID);
         }
 
         return model;

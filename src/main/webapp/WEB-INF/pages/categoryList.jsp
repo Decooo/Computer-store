@@ -20,31 +20,29 @@
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
 <div class="main">
-<h1>Lista kategorii</h1>
+    <h1>Lista kategorii</h1>
 
-<c:if test="${not empty msg}">
-    <div class=msgSuccess>${msg}</div>
-</c:if>
+    <c:if test="${not empty msg}">
+        <div class=msgSuccess>${msg}</div>
+    </c:if>
 
-<input type="submit" value="Dodaj kategorie" onclick="location.href='add'"/><input type="submit" value="Odswiez"
-                                                                                   onclick="location.href='view'"/>
-<br/><br/>
-<table border="1" align="center">
-    <th>ID</th>
-    <th>Nazwa kategorii</th>
-    <th>Opis kategorii</th>
-    <th>Akcja</th>
+    <input type="submit" value="Dodaj kategorie" onclick="location.href='add'"/><input type="submit" value="Odswiez"
+                                                                                       onclick="location.href='view'"/>
+    <br/><br/>
+    <table border="1" align="center">
+        <th>Nazwa kategorii</th>
+        <th>Opis kategorii</th>
+        <th>Akcja</th>
 
-    <list:forEach var="category" items="${categories}">
-        <tr>
-            <td>${category.categoryID}</td>
-            <td>${category.categoryName}</td>
-            <td>${category.categoryDescription}</td>
-            <td><input type="submit" value="Edytuj" onclick="location.href='update/${category.categoryID}';"/><input
-                    type="submit" value="Usun" onclick="location.href='delete/${category.categoryID}';"/></td>
-        </tr>
-    </list:forEach>
-</table>
+        <list:forEach var="category" items="${categories}">
+            <tr>
+                <td>${category.categoryName}</td>
+                <td>${category.categoryDescription}</td>
+                <td><input type="submit" value="Edytuj" onclick="location.href='update/${category.categoryID}';"/><input
+                        type="submit" value="Usun" onclick="location.href='delete/${category.categoryID}';"/></td>
+            </tr>
+        </list:forEach>
+    </table>
 
 
 </div>

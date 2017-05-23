@@ -22,38 +22,40 @@
 <jsp:include page="_header.jsp"/>
 <jsp:include page="_menu.jsp"/>
 <div class="main">
-<h1>Lista produktow</h1>
+    <h1>Lista produktow</h1>
 
-<c:if test="${not empty msg}">
-    <div class=msgSuccess>${msg}</div>
-</c:if>
-
-
-<table border="1" align="center">
-    <th>Zdjecie</th>
-    <th>Nazwa</th>
-    <th>Opis</th>
-    <th>Kategoria</th>
-    <th>Cena</th>
-    <th>Akcja</th>
+    <c:if test="${not empty msg}">
+        <div class=msgSuccess>${msg}</div>
+    </c:if>
 
 
-    <list:forEach var="product" items="${products}">
-        <tr>
-        <td><img src="/product/productImage?id=${product.productID}" width="100" height="100"/></td>
-        <td>${product.productName}</td>
-        <td>${product.productDescription}</td>
-        <td>${product.categoryID}</td>
-        <td><fmt:formatNumber value="${product.productPrice}" type="currency"/></td>
-        <td>
-            <input type="submit" value="Dodaj do koszyka" onclick="location.href='cart/${product.productID}';"/>
-            <security:authorize access="hasAnyRole('ROLE_administrator')">
-                <input type="submit" value="Edytuj" onclick="location.href='update/${product.productID}';"/><input
-                    type="submit" value="Usun"
-                    onclick="location.href='delete/${product.productID}';"/></security:authorize></td>
-        </tr>
-    </list:forEach>
-</table>
+    <table border="1" align="center">
+        <th>Zdjecie</th>
+        <th>Nazwa</th>
+        <th>Opis</th>
+        <th>Kategoria</th>
+        <th>Cena</th>
+        <th>Akcja</th>
+
+
+        <list:forEach var="product" items="${products}" varStatus="loop">
+            <tr>
+                <td><img src="/product/productImage?id=${product.productID}" width="100" height="100"/></td>
+                <td>${product.productName}</td>
+                <td>${product.productDescription}</td>
+                <td><list:forEach begin="${loop.index}" step="1" end="${loop.index}" var="category"
+                                  items="${categories}">${category.categoryName}</list:forEach></td>
+                <td><fmt:formatNumber value="${product.productPrice}" type="currency"/></td>
+                <td>
+                    <input type="submit" value="Dodaj do koszyka" onclick="location.href='cart/${product.productID}';"/>
+                    <security:authorize access="hasAnyRole('ROLE_administrator')">
+                        <input type="submit" value="Edytuj"
+                               onclick="location.href='update/${product.productID}';"/><input
+                            type="submit" value="Usun"
+                            onclick="location.href='delete/${product.productID}';"/></security:authorize></td>
+            </tr>
+        </list:forEach>
+    </table>
 
 </div>
 <jsp:include page="_footer.jsp"/>

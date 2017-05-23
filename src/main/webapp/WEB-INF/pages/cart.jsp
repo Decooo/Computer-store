@@ -29,10 +29,12 @@
     <th>Ilosc</th>
     <th>Cena za sztuke</th>
     <th>Ilosc sztuk</th>
+    <th>Usuwanie</th>
 
-    <list:forEach var="cart" items="${carts}">
+    <list:forEach var="cart" items="${carts}" varStatus="loop">
         <tr>
-            <td><a href="/cart/productName?id=${cart.productID}" />${cart.productID}</td>
+            <td><list:forEach begin="${loop.index}" step="1" end="${loop.index}" var="product"
+                              items="${products}">${product.productName}</list:forEach></td>
             <td>${cart.quantity}</td>
             <td><fmt:formatNumber value="${cart.totalPrice}" type="currency"/></td>
             <td><button><a href="/cart/reduceQuantity?id=${cart.cartID}"> - </a></button><button><a href="/cart/addQuantity?id=${cart.cartID}"> + </a></button></td>
@@ -40,6 +42,7 @@
         </tr>
     </list:forEach>
 </table>
+
 </div>
 
 <div class="price">
