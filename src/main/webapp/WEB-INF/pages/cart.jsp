@@ -25,7 +25,7 @@
 
 
 <table border="1" align="center">
-    <th>Produkt</th>
+    <th>Nazwa produktu</th>
     <th>Ilosc</th>
     <th>Cena za sztuke</th>
     <th>Ilosc sztuk</th>
@@ -37,7 +37,7 @@
                               items="${products}">${product.productName}</list:forEach></td>
             <td>${cart.quantity}</td>
             <td><fmt:formatNumber value="${cart.totalPrice}" type="currency"/></td>
-            <td><button><a href="/cart/reduceQuantity?id=${cart.cartID}"> - </a></button><button><a href="/cart/addQuantity?id=${cart.cartID}"> + </a></button></td>
+            <td><a href="/cart/reduceQuantity?id=${cart.cartID}"><button> - </button></a><a href="/cart/addQuantity?id=${cart.cartID}"><button> + </button></a></td>
             <td><input type="submit" value="Usun" onclick="location.href='delete/${cart.cartID}';"/></td>
         </tr>
     </list:forEach>

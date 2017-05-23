@@ -54,10 +54,6 @@ public class CartController {
                 product.add(productDAO.findByID(c.getProductID()));
             }
 
-            for (int i = 0; i < product.size(); i++) {
-                System.out.println("productName: " + product.get(i).getProductName());
-            }
-
             model.addObject("products", product);
             model.addObject("carts", iterable);
             Double amount = cartDAO.amount(userID);

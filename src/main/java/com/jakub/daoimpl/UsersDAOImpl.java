@@ -1,6 +1,7 @@
 package com.jakub.daoimpl;
 
 import com.jakub.dao.UsersDAO;
+import com.jakub.model.Category;
 import com.jakub.model.Users;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -24,6 +25,23 @@ public class UsersDAOImpl implements UsersDAO {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
 
+
+    @Override
+    public Users findByID(Integer id) {
+        EntityManager entityManager = emf.createEntityManager();
+        StoredProcedureQuery query = entityManager.createStoredProcedureQuery("p_users.find_users_by_id")
+                .registerStoredProcedureParameter(1, Integer.class, javax.persistence.ParameterMode.IN)
+                .registerStoredProcedureParameter(2, String.class, javax.persistence.ParameterMode.OUT)
+                .setParameter(1, id);
+        query.execute();
+
+        String username = query.getOutputParameterValue(2).toString();
+
+        Users users= new Users(id, username);
+
+        entityManager.close();
+        return users;
+    }
 
     @Override
     public Users findUsers(String username) {

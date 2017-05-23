@@ -1,10 +1,13 @@
 package com.jakub.daoimpl;
 
 import com.jakub.dao.OrdersDAO;
+import com.jakub.model.Orders;
+import com.jakub.model.Product;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Jakub on 16.05.2017.
@@ -34,4 +37,15 @@ public class OrdersDAOImpl implements OrdersDAO {
 
         return orderID;
     }
+
+    @Override
+    public List<Orders> findAll() {
+        EntityManager entityManager = emf.createEntityManager();
+
+        List<Orders> result = (List<Orders>) entityManager.createNativeQuery("SELECT * FROM orders", Orders.class).getResultList();
+
+        entityManager.close();
+        return result;
+    }
+
 }

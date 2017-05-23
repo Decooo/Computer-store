@@ -31,6 +31,11 @@ public class Users {
         this.userRole = role;
     }
 
+    public Users(Integer id, String username) {
+        this.userId = id;
+        this.username = username;
+    }
+
     public Users() {
     }
 

@@ -19,6 +19,9 @@
         <a href="${pageContext.request.contextPath}/category/view">Kategorie</a>
     </security:authorize>
     <security:authorize access="hasAnyRole('ROLE_administrator')">
+        <a href="${pageContext.request.contextPath}/orders/list">Zamówienia</a>
+    </security:authorize>
+    <security:authorize access="hasAnyRole('ROLE_administrator')">
         <a href="${pageContext.request.contextPath}/product/add">Nowy produkt</a>
     </security:authorize>
 
