@@ -15,6 +15,8 @@ import javax.servlet.ServletRegistration;
  * Created by Jakub on 17.03.2017.
  */
 
+//klasa konfigurująca springa zajmująca się wyświetlaniem stron jsp
+
 public class SpringWebAppInitializer implements WebApplicationInitializer {
 
     @Override

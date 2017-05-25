@@ -8,6 +8,9 @@ import java.util.List;
 /**
  * Created by Jakub on 08.05.2017.
  */
+
+//interfejs z metodami odpowaiadającymi za operacje w bazie danych na encji koszyk
+
 public interface CartDAO {
 
     public void add(Integer userID, Integer productID, Integer quantity,Double totalPrice);

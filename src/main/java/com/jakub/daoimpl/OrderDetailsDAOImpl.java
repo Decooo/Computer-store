@@ -11,11 +11,15 @@ import java.util.List;
 /**
  * Created by Jakub on 16.05.2017.
  */
+
+//implementacja metod interfejsu odpowaiadających za operacje w bazie danych na encji szczegóły zamówienia
+
 @Transactional
 @Repository
 public class OrderDetailsDAOImpl implements OrderDetailsDAO {
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
 
+    //metoda obsługująca wywołanie procedury pl/sql dodającej szeczgóły składanego zamówienia do bazy danych
     @Override
     public void addOrderDetails(int orderID, int productID, int quantity, double price) {
         EntityManager entityManager = emf.createEntityManager();
@@ -34,6 +38,7 @@ public class OrderDetailsDAOImpl implements OrderDetailsDAO {
         entityManager.close();
     }
 
+    //metoda wyświetlająca szczegóły wybranego zamówienia z bazy danych
     @Override
     public List<OrderDetails> findAll(int id) {
         EntityManager entityManager = emf.createEntityManager();

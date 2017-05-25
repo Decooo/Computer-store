@@ -5,6 +5,9 @@ import javax.persistence.*;
 /**
  * Created by Jakub on 29.03.2017.
  */
+
+//klasa reprezentująca encje uzytkownicy z bazy danych
+
 @Entity
 @Table(name = "users")
 public class Users {

@@ -8,6 +8,9 @@ import javax.persistence.Table;
 /**
  * Created by Jakub on 08.05.2017.
  */
+
+//klasa reprezentująca encje koszyk z bazy danych
+
 @Entity
 @Table(name = "cart")
 public class Cart {

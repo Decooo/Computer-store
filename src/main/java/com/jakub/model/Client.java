@@ -5,6 +5,9 @@ import javax.persistence.*;
 /**
  * Created by Jakub on 06.04.2017.
  */
+
+//klasa reprezentująca encje klient z bazy danych
+
 @Entity
 @Table(name = "client")
 public class Client {

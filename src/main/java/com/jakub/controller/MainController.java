@@ -24,6 +24,9 @@ import java.security.Principal;
 /**
  * Created by Jakub on 23.03.2017.
  */
+
+//klasa obsługująca główny kontroler aplikacji, który odpowiada za wyświetlanie strony głównej, logowania i rejestracji nowego użytkownika
+
 @Controller
 @Transactional
 @EnableWebMvc
@@ -45,6 +48,7 @@ public class MainController {
     @Autowired
     private UsersValidator usersValidator;
 
+    //klasa odpowiadająca za validacje danych przy rejestracji nowego użytkownika
     @InitBinder("client")
     public void clientInitBinder(WebDataBinder dataBinder) {
         Object target = dataBinder.getTarget();
@@ -58,25 +62,27 @@ public class MainController {
         }
     }
 
-
+//metoda odpowiadająca za wyświetlanie widkou strony głównej
     @RequestMapping("/index")
     public ModelAndView index() {
 
         return new ModelAndView("index");
     }
 
-
+//metoda odpowiadająca za wyświetlanie widkou strony głównej
     @RequestMapping("/")
     public ModelAndView home() {
 
         return new ModelAndView("index");
     }
 
+//metoda odpowiadająca za wyświetlanie widkou strony błędu 403
     @RequestMapping("/403")
     public String accesDenied() {
         return "/403";
     }
 
+    //metoda odpowiadająca za wyświetlanie strony logowania
     @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
     public Model login(Model model, @RequestParam(value = "error", required = false) String error,
                        @RequestParam(value = "logout", required = false) String logout) {
@@ -94,6 +100,7 @@ public class MainController {
         return model;
     }
 
+    //metoda odpowiadająca za wyświetlanie strony rejestracji
     @RequestMapping(value = {"/registration"}, method = RequestMethod.POST)
     public String registration(ModelMap registration) {
 
@@ -103,6 +110,7 @@ public class MainController {
         return "registration";
     }
 
+    //metoda odpowiadająca za zapisywanie w bazie nowego użytkownika
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ModelAndView save(Model model, @ModelAttribute("users")Users users, @ModelAttribute("client") @Validated Client client, BindingResult bindingResult) {
 
@@ -146,11 +154,13 @@ public class MainController {
 
     }
 
+    //metoda odpowiadająca za wylogowywanie
     @RequestMapping("/logout")
     public String logout() {
         return "login?logout";
     }
 
+    //metoda odpowiadająca za wyświetlanie informacji o zalogowanym użytkowniku
     @RequestMapping(value = {"/accountInfo"}, method = RequestMethod.GET)
     public String accountInfo(Model model, Principal principal) {
         String username = principal.getName();
@@ -158,6 +168,7 @@ public class MainController {
         return "accountInfo";
     }
 
+    //metoda odpowiadająca za podstrone produkt
     @RequestMapping("/product")
     public String product() {
         return "product";

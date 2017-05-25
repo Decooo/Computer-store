@@ -19,14 +19,22 @@ import java.util.List;
 /**
  * Created by Jakub on 08.05.2017.
  */
+
+//implementacja metod interfejs odpowaiadających za operacje w bazie danych na encji koszyk
+
+
 @Transactional
 @Repository
 public class CartDAOImpl implements CartDAO {
 
+    //tworzenie obiektu session
     @Autowired
     SessionFactory sessionFactory;
+
+    //tworzenie entitymenagera
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
 
+    //metoda obsługująca wywołanie procedury pl/sql dodającej produkt do koszyka
     @Override
     public void add(Integer userID, Integer productID, Integer quantity, Double totalPrice) {
 
@@ -47,6 +55,7 @@ public class CartDAOImpl implements CartDAO {
         entityManager.close();
     }
 
+    //metoda obsługująca wyświetlenie wszystkich produktów w koszyku
     @Override
     public List<Cart> findAll(int id) {
         EntityManager entityManager = emf.createEntityManager();
@@ -57,6 +66,7 @@ public class CartDAOImpl implements CartDAO {
         return result;
     }
 
+    //metoda obsługująca wywołanie procedury pl/sql usuwającej produkt z koszyka
     @Override
     public void deleteProduct(Integer id) {
         EntityManager entityManager = emf.createEntityManager();
@@ -68,7 +78,7 @@ public class CartDAOImpl implements CartDAO {
         entityManager.close();
     }
 
-
+    //metoda obsługująca wywołanie funkcji pl/sql zwiekszającej ilosc sztuk produktu w koszyku
     @Override
     public Integer addQuantity(final Integer id) {
         EntityManager entityManager = emf.createEntityManager();
@@ -92,6 +102,7 @@ public class CartDAOImpl implements CartDAO {
         return newQuantity;
     }
 
+    //metoda obsługująca wywołanie funkcji pl/sql zmniejszającej ilosc sztuk produktu w koszyku
     @Override
     public Integer reduceQuantity(final Integer id) {
         EntityManager entityManager = emf.createEntityManager();
@@ -115,6 +126,7 @@ public class CartDAOImpl implements CartDAO {
         return newQuantity;
     }
 
+    //metoda obsługująca wywołanie procedury pl/sql obliczającej kwote do zaplaty
     @Override
     public Double amount(final Integer userId) {
         EntityManager entityManager = emf.createEntityManager();
@@ -133,7 +145,7 @@ public class CartDAOImpl implements CartDAO {
         return price;
     }
 
-
+    //metoda obsługująca wywołanie funkcji pl/sql obliczającej rabat
     @Override
     public Double rebate(final Integer id) {
         EntityManager entityManager = emf.createEntityManager();
@@ -158,6 +170,7 @@ public class CartDAOImpl implements CartDAO {
         return rebate;
     }
 
+    //metoda obsługująca wywołanie procedury pl/sql usuwającej wszystkie produkty z koszyka
     @Override
     public void clearCart(int userID) {
         EntityManager entityManager = emf.createEntityManager();

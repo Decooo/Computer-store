@@ -19,13 +19,16 @@ import java.util.List;
 /**
  * Created by Jakub on 29.03.2017.
  */
+
+//implementacja metod interfejsu odpowaiadających za operacje w bazie danych na encji użytkownicy
+
 @Transactional
 @Repository
 public class UsersDAOImpl implements UsersDAO {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
 
-
+    //metoda obsługująca wywołanie procedury pl/sql wyszukiwająca użytkownika o podanym id
     @Override
     public Users findByID(Integer id) {
         EntityManager entityManager = emf.createEntityManager();
@@ -43,6 +46,7 @@ public class UsersDAOImpl implements UsersDAO {
         return users;
     }
 
+    //metoda obsługująca wywołanie procedury pl/sql wyszukiwająca użytkownika o podanej nazwie
     @Override
     public Users findUsers(String username) {
         EntityManager entityManager = emf.createEntityManager();
@@ -66,10 +70,9 @@ public class UsersDAOImpl implements UsersDAO {
         Users user = new Users(id, name, password, idClient, role);
 
        return user;
-
-
     }
 
+    //metoda obsługująca wywołanie procedury pl/sql wyszukiwająca użytkownika o podanej nazwie
     @Override
     public Integer findUsersID(String username) {
         EntityManager entityManager=emf.createEntityManager();

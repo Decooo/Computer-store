@@ -14,6 +14,9 @@ import javax.annotation.Resource;
 /**
  * Created by Jakub on 29.03.2017.
  */
+
+//klasa konigurująca springa zajmująca się poprawnym logowaniem do aplikacji
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -26,6 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         authenticationManagerBuilder.userDetailsService(myDBAuthenticationService);
     }
 
+
+    //konfiguracja wymaganych autoryzacji
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();

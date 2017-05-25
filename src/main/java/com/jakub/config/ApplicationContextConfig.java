@@ -23,6 +23,9 @@ import java.util.Properties;
 /**
  * Created by Jakub on 17.03.2017.
  */
+
+//główna klasa konfigurująca springa i hibernate
+
 @Configuration
 @ComponentScan("com.jakub.*")
 @EnableTransactionManagement
@@ -38,6 +41,7 @@ public class ApplicationContextConfig {
         return rb;
     }
 
+    //konfiguracja widoków jsp
     @Bean(name = "viewResolver")
     public InternalResourceViewResolver getViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -54,6 +58,7 @@ public class ApplicationContextConfig {
         return commonsMultipartResolver;
     }
 
+    //konfiguracja łączenia z bazą danych
     @Bean(name = "dataSource")
     public DriverManagerDataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -66,6 +71,7 @@ public class ApplicationContextConfig {
     }
 
 
+    //konfiguracja obiektu sessionFactory
     @Autowired
     @Bean(name = "sessionFactory")
     public SessionFactory getSessionFactory(DriverManagerDataSource dataSource) throws Exception {
@@ -88,6 +94,7 @@ public class ApplicationContextConfig {
         return sf;
     }
 
+    //konfiguracja managera transakcji
     @Autowired
     @Bean(name = "transactionManager")
     public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
@@ -95,6 +102,7 @@ public class ApplicationContextConfig {
         return transactionManager;
     }
 
+    //dodanie encji z baz danych do automatycznie wstrzykiwanych zależności
     @Bean(name = "categoryDAO")
     public CategoryDAO getCategoryDAO() {
         return new CategoryDAOImpl();

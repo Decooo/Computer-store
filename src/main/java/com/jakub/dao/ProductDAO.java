@@ -8,6 +8,9 @@ import java.util.List;
 /**
  * Created by Jakub on 20.04.2017.
  */
+
+//interfejs z metodami odpowaiadającymi za operacje w bazie danych na encji produkt
+
 public interface ProductDAO {
 
     public void add(Product product);

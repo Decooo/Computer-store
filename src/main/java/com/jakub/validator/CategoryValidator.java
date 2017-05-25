@@ -9,6 +9,9 @@ import org.springframework.validation.Validator;
 /**
  * Created by Jakub on 30.03.2017.
  */
+
+//klasa odpowiedzialna za validacje poprawnosci danych i wyświetlaniu odpowiednich błędów
+
 @Component
 public class CategoryValidator implements Validator {
     @Override

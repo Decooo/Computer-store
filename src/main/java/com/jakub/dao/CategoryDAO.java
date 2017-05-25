@@ -8,6 +8,8 @@ import java.util.List;
  * Created by Jakub on 23.03.2017.
  */
 
+//interfejs z metodami odpowaiadającymi za operacje w bazie danych na encji kategorie
+
 public interface CategoryDAO{
 
     public void add(String name, String description);

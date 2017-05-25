@@ -7,6 +7,9 @@ import javax.persistence.*;
 /**
  * Created by Jakub on 20.04.2017.
  */
+
+//klasa reprezentująca encje produkt z bazy danych
+
 @Entity
 @Table(name = "product")
 public class Product {

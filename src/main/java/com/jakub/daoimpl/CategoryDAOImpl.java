@@ -12,12 +12,16 @@ import java.util.List;
  * Created by Jakub on 23.03.2017.
  */
 
+//implementacja metod interfejsu odpowaiadających za operacje w bazie danych na encji kategorie
+
 @Transactional
 @Repository
 public class CategoryDAOImpl implements CategoryDAO {
 
+    //stworzenie obiektu entity managera
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
 
+    //metoda obsługująca wywołanie procedury pl/sql dodającej nowa kategorie
     @Override
     public void add(String name, String description) {
 //        Session session = sessionFactory.getCurrentSession();
@@ -42,6 +46,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
     }
 
+    //metoda obsługująca wywołanie procedury pl/sql edytujaca wybrana kategorie
     @Override
     public void update(Integer id, String name, String description) {
         EntityManager entityManager = emf.createEntityManager();
@@ -58,6 +63,7 @@ public class CategoryDAOImpl implements CategoryDAO {
         entityManager.close();
     }
 
+    //metoda obsługująca wyśietlanie wszystkie kategorie z bazy danych
     @Override
     public List<Category> findAll() {
         EntityManager entityManager = emf.createEntityManager();
@@ -68,6 +74,7 @@ public class CategoryDAOImpl implements CategoryDAO {
         return result;
     }
 
+    //metoda obsługująca wywołanie procedury pl/sql usuwajacej kategorie z bazy danych
     @Override
     public void deleteCategory(Integer id) {
         EntityManager entityManager = emf.createEntityManager();
@@ -79,6 +86,7 @@ public class CategoryDAOImpl implements CategoryDAO {
         entityManager.close();
     }
 
+    //metoda obsługująca wywołanie procedury pl/sql znajdującej kategorie po podaniu jej id
     @Override
     public Category findByID(Integer id) {
         EntityManager entityManager = emf.createEntityManager();

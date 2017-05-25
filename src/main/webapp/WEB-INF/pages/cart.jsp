@@ -54,7 +54,8 @@ Kwota końcowa: <fmt:formatNumber value="${finalAmount}" type="currency"/><br/><
 <form:form commandName="carts" action="order" method="POST">
     <form:button >Złóż zamówienie</form:button>
 </form:form>
-<jsp:include page="_footer.jsp"/>
 </div>
+<jsp:include page="_footer.jsp"/>
+
 </body>
 </html>

@@ -17,6 +17,9 @@ import java.util.List;
 /**
  * Created by Jakub on 29.03.2017.
  */
+
+//klasa odpowiadająca za sprawdzenie rodzaju konta (użytkownik lub administrator)
+
 @Service
 @Transactional
 public class MyDBAuthenticationService implements UserDetailsService {

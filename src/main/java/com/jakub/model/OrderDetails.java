@@ -5,6 +5,9 @@ import javax.persistence.*;
 /**
  * Created by Jakub on 16.05.2017.
  */
+
+//klasa reprezentująca encje szeczgóły zamówienia z bazy danych
+
 @Entity
 @Table(name = "orderDetails")
 public class OrderDetails {

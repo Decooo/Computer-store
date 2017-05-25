@@ -21,6 +21,9 @@ import java.util.List;
 /**
  * Created by Jakub on 23.05.2017.
  */
+
+//klasa kontrolera odpowiadająca za wyświetlanie stron zwiazanych z zamówieniami
+
 @Controller
 @RequestMapping("/orders")
 public class OrdersController {
@@ -37,6 +40,7 @@ public class OrdersController {
     @Autowired
     private ProductDAO productDAO;
 
+    //metoda odpowiadająca za wyświetlanie listy zamówień
     @RequestMapping("/list")
     public ModelAndView show() {
         List<Orders> iterable = ordersDAO.findAll();
@@ -53,6 +57,7 @@ public class OrdersController {
         return model;
     }
 
+    //metoda odpowiadająca za wyświetlanie szczegółów zamówienia
     @RequestMapping(value = "/details/{orderID}", method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable("orderID") int orderID) {
         ModelAndView model = new ModelAndView("orderDetails");

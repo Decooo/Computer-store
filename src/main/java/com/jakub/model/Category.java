@@ -6,6 +6,8 @@ import javax.persistence.*;
  * Created by Jakub on 23.03.2017.
  */
 
+//klasa reprezentująca encje kategorie z bazy danych
+
 
 @Entity
 @Table(name = "category")

@@ -6,6 +6,9 @@ import java.util.Date;
 /**
  * Created by Jakub on 16.05.2017.
  */
+
+//klasa reprezentująca encje zamowienia z bazy danych
+
 @Entity
 @Table(name = "orders")
 public class Orders {

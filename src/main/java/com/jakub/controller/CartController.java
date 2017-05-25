@@ -23,6 +23,9 @@ import java.util.List;
 /**
  * Created by Jakub on 08.05.2017.
  */
+
+//klasa kontrolera odpowiadająca za widoki i działania koszyka
+
 @Controller
 @RequestMapping("/cart")
 public class CartController {
@@ -38,6 +41,7 @@ public class CartController {
     @Autowired
     private OrderDetailsDAO orderDetailsDAO;
 
+    //metoda odpowiadająca za wyświetlanie listy przedmiotów w koszyku
     @RequestMapping("/view")
     public ModelAndView view(Principal principal) {
         ModelAndView model = new ModelAndView("cart");
@@ -66,6 +70,7 @@ public class CartController {
         }
     }
 
+    //metoda odpowiadająca za usuwanie przedmiotu z koszyka
     @RequestMapping(value = "/delete/{cartID}", method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable("cartID") int productID) {
         ModelAndView model = new ModelAndView("redirect:/cart/view");
@@ -73,24 +78,7 @@ public class CartController {
         return model;
     }
 
-    @RequestMapping(value = {"/productName"}, method = RequestMethod.GET, produces = "text/plain")
-    @ResponseBody
-    public String productImage(HttpServletRequest request, HttpServletResponse response, Model model,
-                               @RequestParam("id") String id) throws IOException, ServletException {
-        Product product = null;
-        product = this.productDAO.findProduct(id);
-
-        String name = product.getProductName();
-        response.setContentType("text/plain");
-        request.setAttribute("data", name);
-        PrintWriter out = response.getWriter();
-        out.println(name);
-        out.close();
-        System.out.println("name: " + name);
-
-        return name;
-    }
-
+    //metoda obsługująca za zwiększanie ilość sztuk przedmiotu w koszyku
     @RequestMapping(value = {"/addQuantity"}, method = RequestMethod.GET)
     public ModelAndView addQuantity(HttpServletRequest request, HttpServletResponse response, Model m, @RequestParam("id") String id) {
         ModelAndView model = new ModelAndView("redirect:/cart/view");
@@ -100,6 +88,7 @@ public class CartController {
         return model;
     }
 
+    //metoda obsługująca za zmniejszanie ilość sztuk przedmiotu w koszyku
     @RequestMapping(value = {"/reduceQuantity"}, method = RequestMethod.GET)
     public ModelAndView reduceQuantity(HttpServletRequest request, HttpServletResponse response, Model m, @RequestParam("id") String id) {
         ModelAndView model = new ModelAndView("redirect:/cart/view");
@@ -109,6 +98,8 @@ public class CartController {
         return model;
     }
 
+
+    //metoda obsługująca składanie zamówień przez użytkowników
     @RequestMapping(value = {"order"}, method = RequestMethod.POST)
     public ModelAndView order(Model m, Cart cart, Principal principal) {
         ModelAndView model = new ModelAndView("redirect:/cart/view");

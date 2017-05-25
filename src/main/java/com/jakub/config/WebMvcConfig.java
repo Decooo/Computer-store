@@ -16,6 +16,10 @@ import java.util.List;
 /**
  * Created by Jakub on 21.03.2017.
  */
+
+//klasa konfigurująca springa
+
+
 @Configuration
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
@@ -29,6 +33,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         converters.add(stringConverter);
     }
 
+
+//Ustawienie ścieżki plików css, zdjęć oraz skryptów javascript
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/css/**")

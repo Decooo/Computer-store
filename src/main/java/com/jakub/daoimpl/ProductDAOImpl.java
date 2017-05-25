@@ -13,6 +13,9 @@ import java.util.List;
 /**
  * Created by Jakub on 20.04.2017.
  */
+
+//implementacja metod interfejsu odpowaiadających za operacje w bazie danych na encji produkty
+
 @Transactional
 @Repository
 public class ProductDAOImpl implements ProductDAO {
@@ -20,6 +23,7 @@ public class ProductDAOImpl implements ProductDAO {
     SessionFactory sessionFactory;
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
 
+    //metoda obsługująca wywołanie procedury pl/sql dodającej nowy produkt do bazy danych
     @Override
     public void add(Product product) {
         EntityManager entityManager = emf.createEntityManager();
@@ -41,6 +45,7 @@ public class ProductDAOImpl implements ProductDAO {
         entityManager.close();
     }
 
+    //metoda wyświetlająca wszystkie produkty z bazy danych
     @Override
     public List<Product> findAll() {
         EntityManager entityManager = emf.createEntityManager();
@@ -52,6 +57,7 @@ public class ProductDAOImpl implements ProductDAO {
         return result;
     }
 
+    //metoda znajdująca produkt o podanym id w bazie danych
     @Override
     public Product findProduct(String code) {
         EntityManager entityManager = emf.createEntityManager();
@@ -62,7 +68,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     }
 
-
+    //metoda obsługująca wywołanie procedury pl/sql usuwająca produkt z bazy danych
     @Override
     public void deleteProduct(Integer id) {
         EntityManager entityManager = emf.createEntityManager();
@@ -74,6 +80,7 @@ public class ProductDAOImpl implements ProductDAO {
         entityManager.close();
     }
 
+    //metoda obsługująca wywołanie procedury pl/sql znajdująca produkt o podanym id
     @Override
     public Product findByID(Integer id) {
         EntityManager entityManager = emf.createEntityManager();
@@ -99,7 +106,7 @@ public class ProductDAOImpl implements ProductDAO {
         return product;
     }
 
-
+    //metoda obsługująca wywołanie procedury pl/sql edytującej produkt w bazie danych
     @Override
     public void update(Integer id, String name, String description, Double price, byte[] picture, Integer categoryID) {
         EntityManager entityManager = emf.createEntityManager();

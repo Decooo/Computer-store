@@ -10,6 +10,9 @@ import org.springframework.validation.Validator;
 /**
  * Created by Jakub on 12.04.2017.
  */
+
+//klasa odpowiedzialna za validacje poprawnosci danych i wyświetlaniu odpowiednich błędów
+
 @Component
 public class ClientValidator implements Validator {
 

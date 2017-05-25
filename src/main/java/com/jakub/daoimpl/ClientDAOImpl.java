@@ -15,6 +15,9 @@ import javax.persistence.StoredProcedureQuery;
 /**
  * Created by Jakub on 06.04.2017.
  */
+
+//implementacja metod interfejsu odpowaiadających za operacje w bazie danych na encji klient
+
 @Transactional
 @Repository
 public class ClientDAOImpl implements ClientDAO {
@@ -23,6 +26,7 @@ public class ClientDAOImpl implements ClientDAO {
     SessionFactory sessionFactory;
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.jakub.model");
 
+    //metoda obsługująca wywołanie procedury pl/sql dodającej nowego klienta do bazy danych
     @Override
     public void addClientAndUser(String firstName, String lastName, String emailAddress, String street, String numberHouse, String postCode, String city, String username, String password) {
         EntityManager entityManager = emf.createEntityManager();

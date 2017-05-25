@@ -29,6 +29,9 @@ import java.util.List;
 /**
  * Created by Jakub on 20.04.2017.
  */
+
+//klasa kontrolera odpowiwadająca za wyświetlanie widoków związanych z produktami
+
 @Controller
 @RequestMapping("/product")
 public class ProductController {
@@ -47,12 +50,14 @@ public class ProductController {
     @Autowired
     private ProductValidator productValidator;
 
+    //metoda wczytująca zdjęcia
     private static byte[] readBytesFromFile(MultipartFile filePath) throws IOException {
         byte[] img = filePath.getBytes();
 
         return img;
     }
 
+    //metoda sprawdzająca poprawność danych wejściowych przy dodawaniu nowego produktu
     @InitBinder
     public void myInitBuilder(WebDataBinder dataBinder) {
         Object target = dataBinder.getTarget();
@@ -65,6 +70,7 @@ public class ProductController {
         }
     }
 
+    //metoda odpowiadająca za wyświetlanie listy produktów
     @RequestMapping("/list")
     public ModelAndView show() {
         List<Product> iterable = productDAO.findAll();
@@ -81,6 +87,7 @@ public class ProductController {
         return model;
     }
 
+    //metoda odpowiadająca za widok strony tworzenai nowych produktów
     @RequestMapping("/add")
     public ModelAndView add() {
         ModelAndView model = new ModelAndView("addProduct");
@@ -91,6 +98,7 @@ public class ProductController {
         return model;
     }
 
+    //metoda zapisująca nowy produkt do bazy danych
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public ModelAndView save(HttpServletRequest request, ModelAndView m, @Validated Product product, BindingResult bindingResult, @ModelAttribute("file") MultipartFile file) throws IOException {
         ModelAndView model = new ModelAndView("addProduct");
@@ -120,11 +128,13 @@ public class ProductController {
 
     }
 
+    //metoda usupełniająca combo boxy z kategoriami przy tworzeniu nowego produktu
     private void populateDefaultModel(ModelAndView model) {
         List<Category> category = categoryDAO.findAll();
         model.addObject("categoryID", category);
     }
 
+    //metoda odpowiadająca za wyświetlanie zdjęć przy wyświetlaniu listy produktów
     @RequestMapping(value = {"/productImage"}, method = RequestMethod.GET)
     public void productImage(HttpServletRequest request, HttpServletResponse response, Model model,
                              @RequestParam("id") String id) throws IOException {
@@ -138,7 +148,7 @@ public class ProductController {
         }
         response.getOutputStream().close();
     }
-
+//metoda obsługująca usuwanie produktu
     @RequestMapping(value = "/delete/{productID}", method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable("productID") int productID) {
         ModelAndView model = new ModelAndView("redirect:/product/list");
@@ -146,6 +156,7 @@ public class ProductController {
         return model;
     }
 
+    //metoda obsługująca edytowanie produktu
     @RequestMapping(value = "/update/{productID}", method = RequestMethod.GET)
     public ModelAndView updateProduct(@PathVariable("productID") int productID) {
         ModelAndView model = new ModelAndView("updateProduct");
@@ -156,6 +167,7 @@ public class ProductController {
         return model;
     }
 
+    //metoda obsługująca edytowanie produktu w bazie danych
     @RequestMapping(value = "saveupdate", method = RequestMethod.POST)
     public ModelAndView update(ModelAndView model, @ModelAttribute("updateProduct") @Validated Product product, @ModelAttribute("file") MultipartFile file, BindingResult bindingResult) throws IOException {
         ModelAndView m = new ModelAndView("updateProduct");
@@ -175,6 +187,7 @@ public class ProductController {
         return m;
     }
 
+    //metoda obsługująca dodawanie produktu do koszyka
     @RequestMapping(value = "/cart/{productID}")
     public ModelAndView addToCart(ModelAndView m, Product product, Principal principal) {
         ModelAndView model = new ModelAndView("redirect:/cart/view");

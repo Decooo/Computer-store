@@ -18,6 +18,9 @@ import java.util.List;
 /**
  * Created by Jakub on 23.03.2017.
  */
+
+//klasa kontrolera odpowiadająca za widoki i działania stron wyświetlających kategorie
+
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
@@ -31,6 +34,7 @@ public class CategoryController {
     @Autowired
     private ResourceBundleMessageSource messageSource;
 
+    //metoda sprawdzająca poprawnośc danych wejściowych prz tworzeniu nowej kategorii
     @InitBinder
     public void myInitBinder(WebDataBinder dataBinder) {
         Object target = dataBinder.getTarget();
@@ -45,6 +49,7 @@ public class CategoryController {
 
     }
 
+    //metoda obsługująca dodawanie nowej kategorii
     @RequestMapping("/add")
     public ModelAndView add() {
         ModelAndView model = new ModelAndView("addCategory");
@@ -52,6 +57,7 @@ public class CategoryController {
         return model;
     }
 
+    //metoda obsługująca zapisywanie nowej kategorii do bazy danych
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ModelAndView save(Model model, @Validated Category category, BindingResult bindingResult) {
 
@@ -77,6 +83,7 @@ public class CategoryController {
         return m;
     }
 
+    //metoda obsługująca wyśietlanie tabeli z widokiem kategorii
     @RequestMapping(value = {"/view"})
     public ModelAndView view(ModelAndView m) {
         List<Category> iterable = categoryDAO.findAll();
@@ -86,6 +93,7 @@ public class CategoryController {
         return model;
     }
 
+    //metoda obsługująca usuwanie kateegorii
     @RequestMapping(value = "/delete/{categoryID}", method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable("categoryID") int categoryID) {
         ModelAndView model = new ModelAndView("redirect:/category/view");
@@ -93,6 +101,7 @@ public class CategoryController {
         return model;
     }
 
+    //metoda obsługująca edytowanie kategorii
     @RequestMapping(value = "/update/{categoryID}",method = RequestMethod.GET)
     public ModelAndView updateCat(@PathVariable("categoryID") int categoryID) {
         ModelAndView model = new ModelAndView("updateCategory");
@@ -102,6 +111,7 @@ public class CategoryController {
         return model;
     }
 
+    //metoda obsługująca zapisywanie zmian w edytowanej kategorii do bazy danych
     @RequestMapping(value = "saveupdate", method = RequestMethod.POST)
     public ModelAndView update(ModelAndView model, @ModelAttribute("updateCategory")@Validated Category category, BindingResult bindingResult) {
         ModelAndView m = new ModelAndView("updateCategory");
