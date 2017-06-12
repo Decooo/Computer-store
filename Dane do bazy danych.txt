@@ -1,0 +1,3 @@
+SID: Computer-store
+login: jakub
+has³o: oracle
